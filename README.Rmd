@@ -20,13 +20,16 @@ In the language sciences, we frequently collect data about language usage in dif
 
 Language entropy is a measure that characterizes the diversity in langauge usage (or the degree of balance in langauge usage). Language entropy ranges from 0 to `log(number_of_languages, base=2)`, where 0 represents compartmentalized usage of one langauge and `log(number_of_languages, base=2)` (1 for 2 languages, and 1.585 for 3 langauges) represents perfectly balanced usage of each language. Below, you can see an example of the theoretical distribution of entropy vs. proportion of L2 exposure (for a two language situation).
 
-```{r}
+<img src="inst/images/entropy.png" alt="theoretical entropy distribution" width="500"/>
+
+```{r eval=FALSE, include=FALSE}
 L1 <- seq(0,1,.01)
 L2 <- rev(L1)
 lang<-data.frame(L1=L1,L2=L2)
 lang$ent<-apply(lang, FUN=entropy, MARGIN = 1)
 
-ggplot(lang, aes(x=L2, y=ent)) + geom_line() + xlab("L2 exposure") + ylab("Language entropy") + theme_minimal(base_size = 18)
+ggplot(lang, aes(x=L2, y=ent)) + geom_line() + xlab("L2 exposure") + ylab("Language entropy") + theme_minimal(base_size = 16)
+#ggsave("inst/images/entropy.png")
 ```
 
 When dealing with multiple languages and spheres of langauge usage, language entropy can  reduce the number of data points and generalizes well to multilingual contexts (whereas simple difference scores do not). We have also shown that language entropy relates to various cognitive and neural processes. For more information see, for example, Gullifer et al. (2018).

@@ -1,7 +1,7 @@
 Package: languageEntropy
 Type: Package
 Title: Compute language entropy with {languageEntropy}
-Version: 0.0.1
+Version: 0.1.0
 Author: Jason W. Gullifer
 Maintainer: Jason W. Gullifer <jason.gullifer@mail.mcgill.ca>
 Description: Use this package to compute language entropy within social spheres from language history data. 

@@ -37,6 +37,8 @@ Example (fake) dataset has 5 subjects. Subjects reported L1/L2/L3 use at home an
 library(languageEntropy)
 data(entropyExData) # load example data
 
+# convert home sphere likerts to proportions
+data <- liker
 
 ```
 

@@ -1,6 +1,6 @@
 Package: languageEntropy
 Type: Package
-Title: Compute language entropy
+Title: Compute language entropy with {languageEntropy}
 Version: 0.0.1
 Author: Jason W. Gullifer
 Maintainer: Jason W. Gullifer <jason.gullifer@mail.mcgill.ca>

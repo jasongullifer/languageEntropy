@@ -3,6 +3,19 @@ languageEntropy
 
 Use this package to compute language entropy within social spheres from language history data. See Gullifer et al. (2018) for more detail.
 
+Installation
+------------
+
+`languageEntropy` can be installed through `devtools` using the code below.
+
+```r
+# Install devtools package if necessary
+if(!"devtools" %in% rownames(installed.packages())) install.packages("devtools")
+
+# Install the stable development verions from GitHub
+devtools::install_github("jasongullifer/languageEntropy")
+```
+
 Usage
 -----
 

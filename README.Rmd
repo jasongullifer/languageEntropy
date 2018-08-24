@@ -32,7 +32,7 @@ ggplot(lang, aes(x=L2, y=ent)) + geom_line() + xlab("L2 exposure") + ylab("Langu
 #ggsave("inst/images/entropy.png")
 ```
 
-When dealing with multiple languages and spheres of language usage, language entropy can  reduce the number of data points and generalizes well to multilingual contexts (whereas simple difference scores do not). We have also shown that language entropy relates to various cognitive and neural processes. For more information see, for example, Gullifer et al. (2018).
+When dealing with multiple languages and spheres of language usage, language entropy can  reduce the number of data points and generalizes well to multilingual contexts (whereas simple difference scores do not). We have also shown that language entropy relates to various cognitive and neural processes. For more information see: Gullifer et al. (2018), Gullifer and Titone (under review).
 
 # Installation
 `languageEntropy` can be installed through `devtools` using the code below.
@@ -106,7 +106,9 @@ print(entropyExData)
 
 # References
 
-Gullifer, J. W., Chai, X. J., Whitford, V., Pivneva, I., Baum, S., Klein, D., & Titone, D. (2018). Bilingual experience and resting-state brain connectivity: Impacts of L2 age of acquisition and social diversity of language use on control networks. Neuropsychologia, 117, 123–134. http://doi.org/10.1016/j.neuropsychologia.2018.04.037
+Gullifer, J. W., Chai, X. J., Whitford, V., Pivneva, I., Baum, S., Klein, D., & Titone, D. (2018). Bilingual experience and resting-state brain connectivity: Impacts of L2 age of acquisition and social diversity of language use on control networks. _Neuropsychologia_, _117_, 123–134. http://doi.org/10.1016/j.neuropsychologia.2018.04.037
+
+Gullifer, J. W., & Titone, D. (under review). Characterizing the social diversity of bilingualism using language entropy.
 
 # Acknowledgments
 This work was supported by the Natural Sciences and Engineering Research Council of Canada (individual Discovery Grant, 264146 to Titone); the Social Sciences and Humanities Research Council of Canada (Insight Development Grant, 01037 to Gullifer & Titone); the National Institutes of Health (Postdoctoral training grant, F32-HD082983 to Gullifer, Titone, and Klein); the Centre for Research on Brain, Language & Music.

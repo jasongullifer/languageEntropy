@@ -16,6 +16,7 @@
 #' @param minLikert If using liker scales, specify the minimum possible likert value, typically 1.
 #' @export
 languageEntropy <- function(data, id, ..., entropyName, respType="proportion", minLikert=1){
+  # check that value is proporion
   id_quo = enquo(id)
   cols_quo   = quos(...)
 

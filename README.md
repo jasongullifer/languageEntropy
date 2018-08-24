@@ -14,7 +14,7 @@ Language entropy is a measure that characterizes the diversity in language usage
 
 <img src="inst/images/entropy.png" alt="theoretical entropy distribution" width="500"/>
 
-When dealing with multiple languages and spheres of language usage, language entropy can reduce the number of data points and generalizes well to multilingual contexts (whereas simple difference scores do not). We have also shown that language entropy relates to various cognitive and neural processes. For more information see, for example, Gullifer et al. (2018).
+When dealing with multiple languages and spheres of language usage, language entropy can reduce the number of data points and generalizes well to multilingual contexts (whereas simple difference scores do not). We have also shown that language entropy relates to various cognitive and neural processes. For more information see: Gullifer et al. (2018), Gullifer and Titone (under review).
 
 Installation
 ============
@@ -180,7 +180,9 @@ Step 3: Compute language entropy for each sphere
 References
 ==========
 
-Gullifer, J. W., Chai, X. J., Whitford, V., Pivneva, I., Baum, S., Klein, D., & Titone, D. (2018). Bilingual experience and resting-state brain connectivity: Impacts of L2 age of acquisition and social diversity of language use on control networks. Neuropsychologia, 117, 123–134. <http://doi.org/10.1016/j.neuropsychologia.2018.04.037>
+Gullifer, J. W., Chai, X. J., Whitford, V., Pivneva, I., Baum, S., Klein, D., & Titone, D. (2018). Bilingual experience and resting-state brain connectivity: Impacts of L2 age of acquisition and social diversity of language use on control networks. *Neuropsychologia*, *117*, 123–134. <http://doi.org/10.1016/j.neuropsychologia.2018.04.037>
+
+Gullifer, J. W., & Titone, D. (under review). Characterizing the social diversity of bilingualism using language entropy.
 
 Acknowledgments
 ===============

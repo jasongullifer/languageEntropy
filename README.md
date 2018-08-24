@@ -1,6 +1,6 @@
 Compute language entropy with languageEntropy
 ================
-Jason W. Gullifer and Debra Titone
+Jason W. Gullifer
 2018-08-24
 
 Use this package to compute language entropy within social spheres from language history data.

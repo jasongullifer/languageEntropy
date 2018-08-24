@@ -5,6 +5,7 @@
 #' @param colsList  A list of grouped columns. E.g., list(c("L1Home","L2Home","L3Home"), c("L1Work","L2Work","L3Work")). Totals will be computed separately for each group.
 #' @param minLikert The minimum possible value of your likert index / scale. Typically 1.
 #' @import dplyr
+#' @importFrom magrittr "%>%"
 #' @export
 
 likert2prop <- function(data, id, ..., colsList=NULL, minLikert=1){
@@ -28,6 +29,7 @@ likert2prop <- function(data, id, ..., colsList=NULL, minLikert=1){
 #' @param minLikert The minimum possible value of your likert index / scale. Typically 1.
 #' @import dplyr
 #' @import tidyr
+#' @importFrom magrittr "%>%"
 #' @export
 conv2prop <- function(data, id_quo, cols_quo, minLikert=1){
   df <- data %>% dplyr::select(!!id_quo, !!!cols_quo)

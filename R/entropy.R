@@ -27,7 +27,7 @@ entropy <- function(x, base=2){
   return(entr)
 }
 
-#' Code entropy function
+#' Language entropy function
 #'
 #' This function applies the simple entropy function to specified columns within
 #' a dataset for each individual subject. The user should supply the column that
@@ -44,7 +44,7 @@ entropy <- function(x, base=2){
 #' @param respType The response type of cols. Should either by "likert", "percent", or "proportion". Default is "propotion".
 #' @param minLikert If using liker scales, specify the minimum possible likert value, typically 1.
 #' @export
-codeEntropy <- function(data, id, ..., entropyName, respType="proportion", minLikert=1){
+languageEntropy <- function(data, id, ..., entropyName, respType="proportion", minLikert=1){
   id_quo = enquo(id)
   cols_quo   = quos(...)
 
@@ -71,4 +71,4 @@ codeEntropy <- function(data, id, ..., entropyName, respType="proportion", minLi
   return(data)
 }
 
-codeEntropy(data = data, id = sub, L1Home,L2Home,L3Home, entropyName = "HomeEntropy", respType = "percent", minLikert = 1)
+languageEntropy(data = data, id = sub, L1Home,L2Home,L3Home, entropyName = "HomeEntropy", respType = "percent", minLikert = 1)

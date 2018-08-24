@@ -1,4 +1,4 @@
-languageEntropy
+Compute language entropy with {languageEntropy}
 ===============
 
 Use this package to compute language entropy within social spheres from language history data. See Gullifer et al. (2018) for more detail.

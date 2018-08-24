@@ -1,11 +1,10 @@
 Package: languageEntropy
 Type: Package
-Title: What the Package Does (Title Case)
-Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Title: Compute language entropy
+Version: 0.0.1
+Author: Jason W. Gullifer
+Maintainer: Jason W. Gullifer <jason.gullifer@mail.mcgill.ca>
+Description: Use this package to compute language entropy within social spheres from language history data. 
+License: CC BY-NC-SA 
 Encoding: UTF-8
 LazyData: true

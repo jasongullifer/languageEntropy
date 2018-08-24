@@ -13,8 +13,9 @@ If you use this package in your research, please cite us:
     ## To cite languageEntropy in publications use:
     ## 
     ##   Gullifer, J. W., & Titone, D. (2018). Compute language entropy
-    ##   with {languageEntropy} retrieved from
-    ##   https://github.com/jasongullifer/languageEntropy
+    ##   with {languageEntropy}. Retrieved from
+    ##   https://github.com/jasongullifer/languageEntropy.
+    ##   doi:10.5281/zenodo.1403270
     ## 
     ##   Gullifer, J. W., & Titone, D. (under review). Characterizing the
     ##   social diversity of bilingualism using language entropy.

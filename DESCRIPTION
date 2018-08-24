@@ -8,3 +8,7 @@ Description: Use this package to compute language entropy within social spheres 
 License: CC BY-NC-SA 
 Encoding: UTF-8
 LazyData: true
+Imports:
+    dplyr,
+    magrittr,
+    tidyr

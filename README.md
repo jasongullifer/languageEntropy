@@ -3,6 +3,8 @@ Compute language entropy with languageEntropy
 Jason W. Gullifer
 2018-08-24
 
+[![DOI](https://zenodo.org/badge/142208995.svg)](https://zenodo.org/badge/latestdoi/142208995)
+
 Use this package to compute language entropy within social spheres from language history data. This package was developed by Jason W. Gullifer with conceptual input from Debra Titone.
 
 If you use this package in your research, please cite us:

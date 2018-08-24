@@ -6,7 +6,7 @@ output:
   rmarkdown::github_document: default
   word_document: default
 ---
-
+[![DOI](https://zenodo.org/badge/142208995.svg)](https://zenodo.org/badge/latestdoi/142208995)
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(languageEntropy)

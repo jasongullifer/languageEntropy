@@ -3,8 +3,8 @@ title: "Compute language entropy with languageEntropy"
 author: "Jason W. Gullifer"
 date: '2018-08-24'
 output:
-  rmarkdown::github_document: default
   word_document: default
+  rmarkdown::github_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -18,7 +18,7 @@ Use this package to compute language entropy within social spheres from language
 # Overview
 In the language sciences, we frequently collect data about language usage in different contexts such as daily exposure to known languages or daily language use in various communicative contexts. However, few people make use of these measures for a variety of reasons, including that the sheer number of variables related to usage for several languages can be overwhelming. 
 
-Language entropy is a measure that characterizes the diversity in langauge usage (or the degree of balance in langauge usage). Language entropy ranges from 0 to `log(number_of_languages, base=2)`, where 0 represents compartmentalized usage of one langauge and `log(number_of_languages, base=2)` (1 for 2 languages, and 1.585 for 3 langauges) represents perfectly balanced usage of each language. Below, you can see an example of the theoretical distribution of entropy vs. proportion of L2 exposure (for a two language situation).
+Language entropy is a measure that characterizes the diversity in language usage (or the degree of balance in language usage). Language entropy ranges from 0 to `log(number_of_languages, base=2)`, where 0 represents compartmentalized usage of one language and `log(number_of_languages, base=2)` (1 for 2 languages, and 1.585 for 3 language) represents perfectly balanced usage of each language. Below, you can see an example of the theoretical distribution of entropy vs. proportion of L2 exposure (for a two language situation).
 
 <img src="inst/images/entropy.png" alt="theoretical entropy distribution" width="500"/>
 
@@ -32,7 +32,7 @@ ggplot(lang, aes(x=L2, y=ent)) + geom_line() + xlab("L2 exposure") + ylab("Langu
 #ggsave("inst/images/entropy.png")
 ```
 
-When dealing with multiple languages and spheres of langauge usage, language entropy can  reduce the number of data points and generalizes well to multilingual contexts (whereas simple difference scores do not). We have also shown that language entropy relates to various cognitive and neural processes. For more information see, for example, Gullifer et al. (2018).
+When dealing with multiple languages and spheres of language usage, language entropy can  reduce the number of data points and generalizes well to multilingual contexts (whereas simple difference scores do not). We have also shown that language entropy relates to various cognitive and neural processes. For more information see, for example, Gullifer et al. (2018).
 
 # Installation
 `languageEntropy` can be installed through `devtools` using the code below.

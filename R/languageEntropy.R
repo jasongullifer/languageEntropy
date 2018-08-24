@@ -1,4 +1,4 @@
-#' Language entropy function
+#' languageEntropy function
 #'
 #' This function applies the simple entropy function to specified columns within
 #' a dataset for each individual subject. The user should supply the column that
@@ -8,38 +8,27 @@
 #' the data are likert data, percentage data, or proportion data). Likert and
 #' percentage data are converted to proportions. Note that the probabilities
 #' should sum to 1.
-
 #' @param data A dataset that includes columns which will be converted into entropy
 #' @param id ID variable corresponding to the unique subject ID
 #' @param ... Columns of the dataset that will be converted to entropy.
-#' @param respType The response type of cols. Should either by "likert", "percent", or "proportion". Default is "propotion".
-#' @param minLikert If using liker scales, specify the minimum possible likert value, typically 1.
+#' @import dplyr
+#' @import tidyr
+#' @importFrom magrittr "%>%"
 #' @export
-languageEntropy <- function(data, id, ..., entropyName, respType="proportion", minLikert=1){
-  # check that value is proporion
-  id_quo = enquo(id)
-  cols_quo   = quos(...)
-
-  if(respType == "likert"){
-    data <- likert2prop(data,id, cols, minLikert)
-    #cols <- paste0(cols,"_prop")
-  }else if(respType == "percent"){
-    check <- data %>% group_by(!!id_quo) %>% gather(measure, value, !!!cols_quo) %>% summarise(sum=sum(value,na.rm=T))
-    if (any(!(check$sum == 1))){
-      warning("Proportions for one or more subjects do not add up to 1. Resulting entropy values may be problematic. Please check.")
-    }
-    data <- data %>% mutate_at(.vars=vars(!!!cols_quo), .funs=funs(prop=(.) / 100))
-    #cols <- paste0(cols,"_prop")
-  }else if(respType == "proportion"){
-  }else{
-    stop("Specify respType as either: 'likert', 'percent', or 'proportion'")
+languageEntropy <- function(data, id, ..., colsList=NULL){
+  id_quo = dplyr::enquo(id)
+  cols_quo   = dplyr::quos(...)
+  check <- data %>% dplyr::group_by(!!id_quo) %>% tidyr::gather(measure, value, !!!cols_quo) %>% dplyr::summarise(sum=sum(value,na.rm=T))
+  if (any(!(check$sum == 1))){
+    warning("Proportions for one or more subjects do not add up to 1. Resulting entropy values may be problematic. Please check:")
+    print(check)
   }
 
-  df<-data %>% group_by(!!id_quo) %>%  gather(measure,value,!!!cols_quo) %>%
-    summarise(entropy=entropy(value), missing=sum(value,na.rm=T) == 0)
-  colnames(df)[colnames(df)=="entropy"]<-entropyName
-  colnames(df)[colnames(df)=="missing"]<-paste0("missing",entropyName)
-  data <- left_join(data,df,by=id_quo)
+  df <- data %>% dplyr::group_by(!!id_quo) %>%  tidyr::gather(measure,value,!!!cols_quo) %>%
+    dplyr::summarise(entropy=entropy(value), missing=sum(value,na.rm=T) == 0)
+  #colnames(df)[colnames(df)=="entropy"]<-entropyName
+  #colnames(df)[colnames(df)=="missing"]<-paste0("missing",entropyName)
+  data <- dplyr::left_join(data,df,by=dplyr::quo_name(id_quo))
   return(data)
 }
 
@@ -49,7 +38,6 @@ languageEntropy <- function(data, id, ..., entropyName, respType="proportion", m
 #' Entropy score (a measure of uncertainty). This function doesn't do any type
 #' of error checking (e.g., that proportions add up to 1). However, if all
 #' proportions add up to 0, the function will output NA.
-
 #' @param x A vector of discrete probabilities
 #' @param base Base of the logarithm. Shannon Entropy uses base 2. Other common bases are e (natural) and 10 (hartley).
 #' @keywords shannon entropy

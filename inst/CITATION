@@ -11,6 +11,15 @@ citEntry(entry = "Manual",
         "retrieved from https://github.com/jasongullifer/languageEntropy")
 )
 
+citEntry(entry = "Manual",
+  author = personList(as.person("Jason W. Gullifer"), as.person("Debra Titone")),
+  title = "haracterizing the social diversity of bilingualism using language entropy"
+  year = "under review",
+
+  textVersion =
+  "Gullifer, J. W., & Titone, D. (under review). Characterizing the social diversity of bilingualism using language entropy."
+)
+
 citEntry(entry = "Article",
   author = personList(as.person("Jason W. Gullifer"),as.person("Xiaoqian J. Chai"),as.person("Veronica Whitford"),as.person("Irina Pivneva"),as.person("Shari Baum"),as.person("Denise Klein"),as.person("Debra Titone")),
   doi = "10.1016/j.neuropsychologia.2018.04.037",

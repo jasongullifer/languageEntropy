@@ -31,14 +31,34 @@ As a concrete example, a participant might report the following usage pattern: L
 
 Examples
 --------
-Example (fake) dataset has 5 subjects. Subjects reported L1/L2/L3 use at home and at work. Home and work data are represented as Likert scales (1: uses Lx none at all; 7: uses Lx all the time). Subjects also reportedpercentage of L1/L2/L3 use overall. 
+Example (fake) dataset has 5 subjects. Subjects reported L1/L2/L3 use at home and at work. Home and work data are represented as Likert scales (1: uses Lx none at all; 7: uses Lx all the time). Subjects also reported percentage of L1/L2/L3 use overall. 
 
 ```r
+rm(list=ls())
 library(languageEntropy)
 data(entropyExData) # load example data
 
-# convert home sphere likerts to proportions
-data <- liker
+# convert Likert scale data to proportions
+
+## first for the home sphere
+entropyExData <- likert2prop(entropyExData, sub, L1Home, L2Home, L3Home)
+print(entropyExData)
+
+# next for the work sphere
+entropyExData <- likert2prop(entropyExData, sub, L1Work, L2Work, L3Work)
+print(entropyExData)
+
+# alternatively, you can deal with home and work at the same time
+# by passing home and work as separate vectors within a list
+data(entropyExData) # reload example data
+entropyExData <- likert2prop(entropyExData, sub, colsList = list(c("L1Home", "L2Home", "L3Home"), c("L1Work", "L2Work", "L3Work")))
+print(entropyExData)
+
+# compute language entropy for home sphere
+
+# compute language entropy for work sphere
+
+# compute language entropy for overall percentage usage
 
 ```
 

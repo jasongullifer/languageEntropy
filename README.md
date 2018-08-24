@@ -187,4 +187,4 @@ Acknowledgments
 
 This work was supported by the Natural Sciences and Engineering Research Council of Canada (individual Discovery Grant, 264146 to Titone); the Social Sciences and Humanities Research Council of Canada (Insight Development Grant, 01037 to Gullifer & Titone); the National Institutes of Health (Postdoctoral training grant, F32-HD082983 to Gullifer, Titone, and Klein); the Centre for Research on Brain, Language & Music.
 
-Special thanks to [Ashley M. DaSilva](https://github.com/adasilva), [Mehrgol Tiv](https://github.com/mehrgoltiv), Pauline Palma, [Robert D. Vincent](http://www.bic.mni.mcgill.ca/users/bert/), Junyan Wei, and Naomi Vingron for fruitful discussions regarding (language) entropy.
+Special thanks to [Ashley M. DaSilva](https://github.com/adasilva), Pauline Palma, [Mehrgol Tiv](https://github.com/mehrgoltiv), [Janet Van Hell](http://bild.la.psu.edu/people/principal-investigator), [Robert D. Vincent](http://www.bic.mni.mcgill.ca/users/bert/), Naomi Vingron, and Junyan Wei for fruitful discussions regarding (language) entropy and the social diversity of language usage.

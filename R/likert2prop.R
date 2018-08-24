@@ -1,9 +1,9 @@
 #' Function to convert Likert to proportions
-#' @param data A dataset that includes columns of likert data.
+#' @param data A dataset that includes columns of Likert data.
 #' @param id  ID column corresponding to the unique subject ID.
-#' @param ...  Columns of the dataset that contain the likert data. If using this argument, proportions will be computed using all columns specified here as the total. If you want to specify several groups of columns, where each group is totaled separately, you may specify them in the colsList agrument below.
+#' @param ...  Columns of the dataset that contain the Likert data. If using this argument, proportions will be computed using all columns specified here as the total. If you want to specify several groups of columns, where each group is totaled separately, you may specify them in the colsList agrument below.
 #' @param colsList  A list of grouped columns. E.g., list(c("L1Home","L2Home","L3Home"), c("L1Work","L2Work","L3Work")). Totals will be computed separately for each group.
-#' @param minLikert The minimum possible value of your likert index / scale. Typically 1.
+#' @param minLikert The minimum possible value of your Likert index / scale. Typically 1.
 #' @import dplyr
 #' @importFrom magrittr "%>%"
 #' @export
@@ -44,10 +44,10 @@ likert2prop <- function(data, id, ..., colsList=NULL, minLikert=1){
 }
 
 #' Helper function to convert to Likert to proportions
-#' @param data A dataset that includes columns of likert data.
+#' @param data A dataset that includes columns of Likert data.
 #' @param id_quo  Quoted ID variable corresponding to the unique subject ID
-#' @param cols_quo Quoted columns of the dataset that contain the likert data.
-#' @param minLikert The minimum possible value of your likert index / scale. Typically 1.
+#' @param cols_quo Quoted columns of the dataset that contain the Likert data.
+#' @param minLikert The minimum possible value of your Likert index / scale. Typically 1.
 #' @import dplyr
 #' @import tidyr
 #' @importFrom magrittr "%>%"

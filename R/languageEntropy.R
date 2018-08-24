@@ -3,17 +3,24 @@
 #' This function applies the simple entropy function to specified columns within
 #' a dataset for each individual subject. The user should supply the column that
 #' identifies the unique subject ID (id) as well as the columns of the dataset
-#' that contain the data to be converted into entropy (cols). The user must
-#' specify the type of data contained in the specified columns (i.e., whether
-#' the data are likert data, percentage data, or proportion data). Likert and
-#' percentage data are converted to proportions. Note that the probabilities
-#' should sum to 1.
-#' @param data A dataset that includes columns which will be converted into entropy
+#' that contain the data to be converted into entropy (...).
+#'
+#' Note that entropy will be computed from proportions and these proportions
+#' should sum to 1 within a usage sphere. There are various helper functions to
+#' help you convert different types of data to propotions (likert2prop() and
+#' percent2prop()).
+#'
+#' @param data A dataset that includes columns which will be converted into
+#'   entropy
 #' @param id ID variable corresponding to the unique subject ID
 #' @param ... Columns of the dataset that will be converted to entropy.
-#' @param sphereName A title you give for the resulting entropy column. Leave this NULL if you use colsList.
-#' @param colsList  A list of grouped columns. Entropy will be computed separately for each group. E.g., list(Home=c("L1Home","L2Home","L3Home"), Work=c("L1Work","L2Work","L3Work")).
-#' @param base Base of the logarithm. Default is Shannon Entropy with base 2. Other common bases are e (natural) and 10 (hartley).
+#' @param sphereName A title you give for the resulting entropy column. Leave
+#'   this NULL if you use colsList.
+#' @param colsList  A list of grouped columns. Entropy will be computed
+#'   separately for each group. E.g., list(Home=c("L1Home","L2Home","L3Home"),
+#'   Work=c("L1Work","L2Work","L3Work")).
+#' @param base Base of the logarithm. Default is Shannon Entropy with base 2.
+#'   Other common bases are e (natural) and 10 (hartley).
 #' @import dplyr
 #' @import tidyr
 #' @importFrom magrittr "%>%"
@@ -62,9 +69,9 @@ languageEntropy <- function(data, id, ..., sphereName = NULL, colsList=NULL, bas
 }
 
 #' Helper function to convert code language entropy
-#' @param data A dataset that includes columns of likert data.
+#' @param data A dataset that includes columns of Likert data.
 #' @param id_quo  Quoted ID variable corresponding to the unique subject ID
-#' @param cols_quo Quoted columns of the dataset that contain the likert data.
+#' @param cols_quo Quoted columns of the dataset that contain the Likert data.
 #' @param sphereName  Title for the resulting entropy column.
 #' @param base Base of the logarithm.
 #' @import dplyr

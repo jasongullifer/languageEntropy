@@ -39,6 +39,6 @@ conv2prop <- function(data, id_quo, cols_quo, minLikert=1){
     dplyr::mutate(total=sum(value,na.rm=T), prop=value/total) %>%
     dplyr::select(-value,-total) %>%
     tidyr::spread(measure,prop)
-  data <- dplyr::left_join(data,df,by=quo_name(id_quo), suffix=c("","_prop"))
+  data <- dplyr::left_join(data,df,by=dplyr::quo_name(id_quo), suffix=c("","_prop"))
   return(data)
 }

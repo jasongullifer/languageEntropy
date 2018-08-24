@@ -5,7 +5,7 @@ citEntry(entry = "Manual",
   author       = personList(as.person("Jason W. Gullifer"), as.person("Debra Titone")),
   year         = "2018",
   url          = "https://github.com/jasongullifer/languageEntropy",
-  doi          = "10.5281/zenodo.1403270"
+  doi          = "10.5281/zenodo.1403270",
 
   textVersion  =
   paste("Gullifer, J. W., & Titone, D. (2018). Compute language entropy with {languageEntropy}.",

@@ -3,7 +3,26 @@ Compute language entropy with languageEntropy
 Jason W. Gullifer
 2018-08-24
 
-Use this package to compute language entropy within social spheres from language history data. This package was developed by Jason W. Gullifer with conceptual input from Debra Titone. For more information see the following publications: Gullifer et al. (2018), Gullifer and Titone (under review).
+Use this package to compute language entropy within social spheres from language history data. This package was developed by Jason W. Gullifer with conceptual input from Debra Titone.
+
+If you use this package in your research, please cite us:
+
+    ## 
+    ## To cite languageEntropy in publications use:
+    ## 
+    ##   Gullifer, J. W., & Titone, D. (2018). Compute language entropy
+    ##   with {languageEntropy} retrieved from
+    ##   https://github.com/jasongullifer/languageEntropy
+    ## 
+    ##   Gullifer, J. W., & Titone, D. (under review). Characterizing the
+    ##   social diversity of bilingualism using language entropy.
+    ## 
+    ##   Gullifer, J. W., Chai, X. J., Whitford, V., Pivneva, I., Baum,
+    ##   S., Klein, D., & Titone, D. (2018). Bilingual experience and
+    ##   resting-state brain connectivity: Impacts of L2 age of
+    ##   acquisition and social diversity of language use on control
+    ##   networks. Neuropsychologia, 117, 123–134.
+    ##   http://doi.org/10.1016/j.neuropsychologia.2018.04.037
 
 Overview
 ========

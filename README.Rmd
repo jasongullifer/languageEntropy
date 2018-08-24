@@ -13,7 +13,12 @@ library(languageEntropy)
 library(ggplot2)
 ```
 
-Use this package to compute language entropy within social spheres from language history data. This package was developed by Jason W. Gullifer with conceptual input from Debra Titone. For more information see the following publications: Gullifer et al. (2018), Gullifer and Titone (under review).
+Use this package to compute language entropy within social spheres from language history data. This package was developed by Jason W. Gullifer with conceptual input from Debra Titone. 
+
+If you use this package in your research, please cite us:
+```{r echo=FALSE}
+print(citation("languageEntropy"),bibtex=F)
+```
 
 # Overview
 In the language sciences, we frequently collect data about language usage in different contexts such as daily exposure to known languages or daily language use in various communicative contexts. However, few people make use of these measures for a variety of reasons, including that the sheer number of variables related to usage for several languages can be overwhelming. 

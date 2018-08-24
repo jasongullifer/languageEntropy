@@ -34,7 +34,6 @@ Examples
 Example (fake) dataset has 5 subjects. Subjects reported L1/L2/L3 use at home and at work. Home and work data are represented as Likert scales (1: uses Lx none at all; 7: uses Lx all the time). Subjects also reported percentage of L1/L2/L3 use overall. 
 
 ```r
-rm(list=ls())
 library(languageEntropy)
 data(entropyExData) # load example data
 

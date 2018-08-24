@@ -2,10 +2,10 @@
 % Please edit documentation in R/languageEntropy.R
 \name{languageEntropy}
 \alias{languageEntropy}
-\title{Language entropy function}
+\title{languageEntropy function}
 \usage{
-languageEntropy(data, id, ..., entropyName, respType = "proportion",
-  minLikert = 1)
+languageEntropy(data, id, ..., sphereName = NULL, colsList = NULL,
+  base = 2)
 }
 \arguments{
 \item{data}{A dataset that includes columns which will be converted into entropy}
@@ -14,9 +14,11 @@ languageEntropy(data, id, ..., entropyName, respType = "proportion",
 
 \item{...}{Columns of the dataset that will be converted to entropy.}
 
-\item{respType}{The response type of cols. Should either by "likert", "percent", or "proportion". Default is "propotion".}
+\item{sphereName}{A title you give for the resulting entropy column. Leave this NULL if you use colsList.}
 
-\item{minLikert}{If using liker scales, specify the minimum possible likert value, typically 1.}
+\item{colsList}{A list of grouped columns. Entropy will be computed separately for each group. E.g., list(Home=c("L1Home","L2Home","L3Home"), Work=c("L1Work","L2Work","L3Work")).}
+
+\item{base}{Base of the logarithm. Default is Shannon Entropy with base 2. Other common bases are e (natural) and 10 (hartley).}
 }
 \description{
 This function applies the simple entropy function to specified columns within
@@ -27,4 +29,28 @@ specify the type of data contained in the specified columns (i.e., whether
 the data are likert data, percentage data, or proportion data). Likert and
 percentage data are converted to proportions. Note that the probabilities
 should sum to 1.
+}
+\examples{
+library(languageEntropy)
+data(entropyExDataProp) # load example data with proportions
+
+# first for the home sphere
+entropyExDataProp <- languageEntropy(entropyExDataProp, sub, L1Home_prop, L2Home_prop, L3Home_prop, sphereName = "Home")
+print(entropyExDataProp)
+
+# next for the work sphere
+entropyExDataProp <- languageEntropy(entropyExDataProp, sub, L1Work_prop, L2Work_prop, L3Work_prop, sphereName = "Work")
+print(entropyExDataProp)
+
+# finally for percent/proportion usage sphere
+entropyExDataProp <- languageEntropy(entropyExDataProp, sub, L1PercentUse_prop, L2PercentUse_prop, L3PercentUse_prop, sphereName = "PercentUse")
+print(entropyExDataProp)
+
+# alternatively, you can deal with home, work and percent at the same time
+# by passing data for these spheres as separate vectors within a list
+data(entropyExDataProp) #reload the data
+entropyExData <- languageEntropy(entropyExData, sub,
+colsList = list(Home=c("L1Home_prop", "L2Home_prop", "L3Home_prop"),
+                Work=c("L1Work_prop","L2Work_prop","L3Work_prop"),
+                PercentUse=c("L1PercentUse_prop", "L2PercentUse_prop", "L3PercentUse_prop")))
 }

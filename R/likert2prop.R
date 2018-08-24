@@ -1,4 +1,4 @@
-#' Function to convert to proportions
+#' Function to convert Likert to proportions
 #' @param data A dataset that includes columns of likert data.
 #' @param id  ID column corresponding to the unique subject ID.
 #' @param ...  Columns of the dataset that contain the likert data. If using this argument, proportions will be computed using all columns specified here as the total. If you want to specify several groups of columns, where each group is totaled separately, you may specify them in the colsList agrument below.
@@ -21,6 +21,9 @@
 #' entropyExData <- likert2prop(entropyExData, sub, L1Work, L2Work, L3Work)
 #' print(entropyExData)
 #'
+#' entropyExData <- likert2prop(entropyExData, sub, L1PercentUse, L2PercentUse, L3PercentUse)
+#' print(entropyExData)
+#'
 #' # alternatively, you can deal with home and work at the same time
 #' # by passing home and work as separate vectors within a list
 #' data(entropyExData) # reload example data
@@ -40,7 +43,7 @@ likert2prop <- function(data, id, ..., colsList=NULL, minLikert=1){
   return(data)
 }
 
-#' Helper function to convert to proportions
+#' Helper function to convert to Likert to proportions
 #' @param data A dataset that includes columns of likert data.
 #' @param id_quo  Quoted ID variable corresponding to the unique subject ID
 #' @param cols_quo Quoted columns of the dataset that contain the likert data.

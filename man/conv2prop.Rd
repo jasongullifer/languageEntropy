@@ -2,7 +2,7 @@
 % Please edit documentation in R/likert2prop.R
 \name{conv2prop}
 \alias{conv2prop}
-\title{Helper function to convert to proportions}
+\title{Helper function to convert to Likert to proportions}
 \usage{
 conv2prop(data, id_quo, cols_quo, minLikert = 1)
 }
@@ -16,5 +16,5 @@ conv2prop(data, id_quo, cols_quo, minLikert = 1)
 \item{minLikert}{The minimum possible value of your likert index / scale. Typically 1.}
 }
 \description{
-Helper function to convert to proportions
+Helper function to convert to Likert to proportions
 }

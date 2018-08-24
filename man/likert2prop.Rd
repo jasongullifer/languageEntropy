@@ -2,7 +2,7 @@
 % Please edit documentation in R/likert2prop.R
 \name{likert2prop}
 \alias{likert2prop}
-\title{Function to convert to proportions}
+\title{Function to convert Likert to proportions}
 \usage{
 likert2prop(data, id, ..., colsList = NULL, minLikert = 1)
 }
@@ -18,7 +18,7 @@ likert2prop(data, id, ..., colsList = NULL, minLikert = 1)
 \item{minLikert}{The minimum possible value of your likert index / scale. Typically 1.}
 }
 \description{
-Function to convert to proportions
+Function to convert Likert to proportions
 }
 \examples{
 library(languageEntropy)
@@ -32,6 +32,9 @@ print(entropyExData)
 
 # next for the work sphere
 entropyExData <- likert2prop(entropyExData, sub, L1Work, L2Work, L3Work)
+print(entropyExData)
+
+entropyExData <- likert2prop(entropyExData, sub, L1PercentUse, L2PercentUse, L3PercentUse)
 print(entropyExData)
 
 # alternatively, you can deal with home and work at the same time

@@ -70,8 +70,10 @@ print(entropyExData)
 ## Step 1: Identify spheres of usage.
 We will compute entropy independently for the home sphere, the work sphere, and percent language usage. 
 
-## Step 2: Convert Likert data to proportions for each sphere
-As a concrete example of what we're doing here, a participant (e.g., Subject 1) might report the following usage pattern at home: L1: 7 (all the time), L2: 7 (all the time), L3: 4 (sometimes). First, we rebaseline the Likert scale to 0, so that a score of 0 reflects "no usage", resulting in: L1: 6, L3:6, L3: 3. Next, each rebaselined usage is divided by the sum total (15), resulting in the following proportions of usage L1: 6/15, L2: 6/15, L3: 3/15.  
+## Step 2: Convert data to proportions for each sphere
+Some of our data is represented by Likert scales and some is represented as percentages. Both types of data should be converted to proportions. 
+
+For percentages, here is a concrete example of what we're doing: a participant (e.g., Subject 1) might report the following usage pattern at home: L1: 7 (all the time), L2: 7 (all the time), L3: 4 (sometimes). First, we rebaseline the Likert scale to 0, so that a score of 0 reflects "no usage", resulting in: L1: 6, L3:6, L3: 3. Next, each rebaselined usage is divided by the sum total (15), resulting in the following proportions of usage L1: 6/15, L2: 6/15, L3: 3/15.  
 
 Here's the R code to do this for each subject in the home sphere.
 ```{r}
@@ -93,16 +95,35 @@ entropyExData <- likert2prop(entropyExData, sub, colsList = list(c("L1Home", "L2
 print(entropyExData)
 ```
 
-## Step 3: Compute language entropy for each sphere
+Now for the percentages. There's also a helper function for this. 
 ```{r}
-# compute language entropy for home sphere
+entropyExData <- percent2prop(entropyExData, L1PercentUse, L2PercentUse, L3PercentUse)
 
-# compute language entropy for work sphere
-
-# compute language entropy for overall percentage usage
-
+print(entropyExData)
+```
+## Step 3: Compute language entropy for each sphere
+Home sphere
+```{r}
+entropyExData <- languageEntropy(entropyExData, sub, L1Home_prop, L2Home_prop, L3Home_prop, sphereName = "Home")
 ```
 
+Work sphere
+```{r}
+entropyExData <- languageEntropy(entropyExData, sub, L1Work_prop, L2Work_prop, L3Work_prop, sphereName = "Work")
+```
+
+Overall use
+```{r}
+entropyExData <- languageEntropy(entropyExData, sub, L1PercentUse_prop, L2PercentUse_prop, L3PercentUse_prop, sphereName = "PercentUse")
+```
+
+Alternatively, `languageEntropy()` can be told to separate the various spheres with one command. This can be done by passing the different language usages as separate vectors within a list to the `colsList` argument, like we did above.
+```{r}
+entropyExData <- languageEntropy(entropyExData, sub, 
+                                 colsList = list(Home=c("L1Home_prop", "L2Home_prop", "L3Home_prop"),
+                                                 Work=c("L1Work_prop","L2Work_prop","L3Work_prop"),
+                                                 PercentUse=c("L1PercentUse_prop", "L2PercentUse_prop", "L3PercentUse_prop")))
+```
 
 # References
 

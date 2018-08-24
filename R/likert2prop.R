@@ -7,7 +7,25 @@
 #' @import dplyr
 #' @importFrom magrittr "%>%"
 #' @export
-
+#' @examples
+#' library(languageEntropy)
+#' data(entropyExData) # load example data
+#'
+#' # convert Likert scale data to proportions
+#'
+#' ## first for the home sphere
+#' entropyExData <- likert2prop(entropyExData, sub, L1Home, L2Home, L3Home)
+#' print(entropyExData)
+#'
+#' # next for the work sphere
+#' entropyExData <- likert2prop(entropyExData, sub, L1Work, L2Work, L3Work)
+#' print(entropyExData)
+#'
+#' # alternatively, you can deal with home and work at the same time
+#' # by passing home and work as separate vectors within a list
+#' data(entropyExData) # reload example data
+#' entropyExData <- likert2prop(entropyExData, sub, colsList = list(c("L1Home", "L2Home", "L3Home"), c("L1Work", "L2Work", "L3Work")))
+#' print(entropyExData)
 likert2prop <- function(data, id, ..., colsList=NULL, minLikert=1){
   id_quo <- dplyr::enquo(id)
   if(is.null(colsList)){ # if not using colsList, convert once for all columns specified in ...

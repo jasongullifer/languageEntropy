@@ -3,8 +3,8 @@ title: "Compute language entropy with languageEntropy"
 author: "Jason W. Gullifer"
 date: '2018-08-24'
 output:
-  word_document: default
   rmarkdown::github_document: default
+  word_document: default
 ---
 
 ```{r setup, include=FALSE}

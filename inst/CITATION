@@ -13,7 +13,7 @@ citEntry(entry = "Manual",
 
 citEntry(entry = "Manual",
   author = personList(as.person("Jason W. Gullifer"), as.person("Debra Titone")),
-  title = "haracterizing the social diversity of bilingualism using language entropy"
+  title = "Characterizing the social diversity of bilingualism using language entropy",
   year = "under review",
 
   textVersion =

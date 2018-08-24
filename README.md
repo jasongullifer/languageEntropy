@@ -14,7 +14,6 @@ Examples
 --------
 
 Eventually I will supply various example usages with fake datasets. 
--------------------------------------------------------------------
 
 If you have a dataset that contains proportions of language usage within that sum up to 1 (e.g. usage at home, work, overall, etc), use the languageEntropy() function. You pass it your whole dataset, a bare (unquoted) column name that contains the unique subject ID, and bare (unquoted) column names that contain language usage (that total to 1). 
 

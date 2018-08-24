@@ -1,6 +1,6 @@
 ---
 title: "Compute language entropy with languageEntropy"
-author: "Jason W. Gullifer"
+author: "Jason W. Gullifer and Debra Titone"
 date: '2018-08-24'
 output:
   rmarkdown::github_document: default

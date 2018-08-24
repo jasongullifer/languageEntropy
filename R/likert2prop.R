@@ -51,7 +51,7 @@ likert2prop <- function(data, id, ..., colsList=NULL, minLikert=1){
 #' @export
 conv2prop <- function(data, id_quo, cols_quo, minLikert=1){
   df <- data %>% dplyr::select(!!id_quo, !!!cols_quo)
-  df<-df %>% tidyr::gather(measure, value, !!!cols_quo) %>%
+  df <- df %>% tidyr::gather(measure, value, !!!cols_quo) %>%
     dplyr::mutate(value=as.numeric(value)-minLikert) %>%
     dplyr::group_by(!!id_quo) %>%
     dplyr::mutate(total=sum(value,na.rm=T), prop=value/total) %>%

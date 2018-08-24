@@ -12,3 +12,4 @@ Imports:
     dplyr,
     magrittr,
     tidyr
+RoxygenNote: 6.1.0

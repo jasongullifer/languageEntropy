@@ -18,7 +18,7 @@ Use this package to compute language entropy within social spheres from language
 # Overview
 In the language sciences, we frequently collect data about language usage in different contexts such as daily exposure to known languages or daily language use in various communicative contexts. However, few people make use of these measures for a variety of reasons, including that the sheer number of variables related to usage for several languages can be overwhelming. 
 
-Language entropy is a measure that characterizes the diversity in language usage (or the degree of balance in language usage). Language entropy ranges from 0 to `log(number_of_languages, base=2)`, where 0 represents compartmentalized usage of one language and `log(number_of_languages, base=2)` (1 for 2 languages, and 1.585 for 3 language) represents perfectly balanced usage of each language. Below, you can see an example of the theoretical distribution of entropy vs. proportion of L2 exposure (for a two language situation).
+Language entropy is a measure that characterizes the diversity in language usage (or the degree of balance in language usage). Language entropy ranges from 0 to `log(number_of_languages, base=2)`, where 0 represents compartmentalized usage of one language and `log(number_of_languages, base=2)` (1 for 2 languages, and 1.585 for 3 language) represents perfectly balanced usage of each language. Below, you can see an example of the theoretical distribution of entropy vs. proportion of L2 exposure (for a two-language situation).
 
 <img src="inst/images/entropy.png" alt="theoretical entropy distribution" width="500"/>
 
@@ -57,7 +57,7 @@ Here, five subjects reported L1/L2/L3 use in the home and at work (via 1-7 Liker
 We can compute language entropy at home, at work, and for overall usage with the `languageEntropy` package. The general steps are as follows:
 
 1. You must identify spheres of usage in which to compute entropy (e.g., here we choose home, at work, percent usage). 
-2. For each sphere of usage, convert your data to proporions of usage. We have convenience functions to convert Likert scales and percentages to proportions. Note: proprtions should sum to 1 within each sphere of usage!
+2. For each sphere of usage, convert your data to proportions of usage. We have convenience functions to convert Likert scales and percentages to proportions. Note: proportions should sum to 1 within each sphere of usage!
 3. For each sphere of usage, compute language entropy using `languageEntropy()`. 
 
 ## Load example dataset
@@ -71,7 +71,7 @@ print(entropyExData)
 We will compute entropy independently for the home sphere, the work sphere, and percent language usage. 
 
 ## Step 2: Convert Likert data to proportions for each sphere
-As a concrete example of what we're doing here, a participant (e.g., Subject 1) might report the following usage pattern at home: L1: 7 (all the time), L2: 7 (all the time), L3: 4 (sometimes). First we rebaseline the Likert scale to 0, so that a score of 0 reflects "no usage", resulting in: L1: 6, L3:6, L3: 3. Next, each rebaselined usage is divided by the sum total (15), resulting in the following proportions of usage L1: 6/15, L2: 6/15, L3: 3/15.  
+As a concrete example of what we're doing here, a participant (e.g., Subject 1) might report the following usage pattern at home: L1: 7 (all the time), L2: 7 (all the time), L3: 4 (sometimes). First, we rebaseline the Likert scale to 0, so that a score of 0 reflects "no usage", resulting in: L1: 6, L3:6, L3: 3. Next, each rebaselined usage is divided by the sum total (15), resulting in the following proportions of usage L1: 6/15, L2: 6/15, L3: 3/15.  
 
 Here's the R code to do this for each subject in the home sphere.
 ```{r}
@@ -79,7 +79,7 @@ entropyExData <- likert2prop(entropyExData, sub, L1Home, L2Home, L3Home)
 print(entropyExData)
 ```
 
-Next we'll convert the data from the work sphere. 
+Next, we'll convert the data from the work sphere. 
 ```{r}
 entropyExData <- likert2prop(entropyExData, sub, L1Work, L2Work, L3Work)
 print(entropyExData)

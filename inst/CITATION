@@ -1,0 +1,39 @@
+citHeader("To cite languageEntropy in publications use:")
+
+citEntry(entry = "Manual",
+  title        = "Compute language entropy with {languageEntropy}",
+  author       = personList(as.person("Jason W. Gullifer"), as.person("Debra Titone")),
+  year         = "2018",
+  url          = "https://github.com/jasongullifer/languageEntropy",
+  doi          = "10.5281/zenodo.1403272",
+
+  textVersion  =
+  paste("Gullifer, J. W., & Titone, D. (2018). Compute language entropy with {languageEntropy}.",
+        "Retrieved from https://github.com/jasongullifer/languageEntropy.", "doi:10.5281/zenodo.1403272")
+)
+
+citEntry(entry = "Manual",
+  author = personList(as.person("Jason W. Gullifer"), as.person("Debra Titone")),
+  title = "Characterizing the social diversity of bilingualism using language entropy",
+  year = "under review",
+
+  textVersion =
+  "Gullifer, J. W., & Titone, D. (under review). Characterizing the social diversity of bilingualism using language entropy."
+)
+
+citEntry(entry = "Article",
+  author = personList(as.person("Jason W. Gullifer"),as.person("Xiaoqian J. Chai"),as.person("Veronica Whitford"),as.person("Irina Pivneva"),as.person("Shari Baum"),as.person("Denise Klein"),as.person("Debra Titone")),
+  doi = "10.1016/j.neuropsychologia.2018.04.037",
+  eprint = "OSF.IO/24XCV",
+  issn = "18733514",
+  journal = "Neuropsychologia",
+  pages = "123--134",
+  title = "Bilingual experience and resting-state brain connectivity: Impacts of L2 age of acquisition and social   diversity of language use on control networks",
+  url = "http://linkinghub.elsevier.com/retrieve/pii/S0028393218301878",
+  volume = "117",
+  year = 2018,
+
+  textVersion =
+  "Gullifer, J. W., Chai, X. J., Whitford, V., Pivneva, I., Baum, S., Klein, D., & Titone, D. (2018). Bilingual experience and resting-state brain connectivity: Impacts of L2 age of acquisition and social diversity of language use on control networks. Neuropsychologia, 117, 123–134. http://doi.org/10.1016/j.neuropsychologia.2018.04.037"
+)
+

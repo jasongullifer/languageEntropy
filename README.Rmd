@@ -1,0 +1,148 @@
+---
+title: "Compute language entropy with languageEntropy"
+author: "Jason W. Gullifer"
+date: '2018-08-24'
+output:
+  rmarkdown::github_document: default
+  word_document: default
+---
+[![DOI](https://zenodo.org/badge/142208995.svg)](https://zenodo.org/badge/latestdoi/142208995)
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(languageEntropy)
+library(ggplot2)
+```
+
+Use this package to compute language entropy within social spheres from language history data. This package was developed by Jason W. Gullifer with conceptual input from Debra Titone. 
+
+If you use this package in your research, please cite us:
+```{r echo=FALSE}
+print(citation("languageEntropy"),bibtex=F)
+```
+
+# Overview
+In the language sciences, we frequently collect data about language usage in different contexts such as daily exposure to known languages or daily language use in various communicative contexts. However, few people make use of these measures for a variety of reasons, including that the sheer number of variables related to usage for several languages can be overwhelming. 
+
+Language entropy is a measure that characterizes the diversity in language usage (or the degree of balance in language usage). Language entropy ranges from 0 to `log(number_of_languages, base=2)`, where 0 represents compartmentalized usage of one language and `log(number_of_languages, base=2)` (1 for 2 languages, and 1.585 for 3 language) represents perfectly balanced usage of each language. Below, you can see an example of the theoretical distribution of entropy vs. proportion of L2 exposure (for a two-language situation).
+
+<img src="inst/images/entropy.png" alt="theoretical entropy distribution" width="500"/>
+
+```{r eval=FALSE, include=FALSE}
+L1 <- seq(0,1,.01)
+L2 <- rev(L1)
+lang<-data.frame(L1=L1,L2=L2)
+lang$ent<-apply(lang, FUN=entropy, MARGIN = 1)
+
+ggplot(lang, aes(x=L2, y=ent)) + geom_line() + xlab("L2 exposure") + ylab("Language entropy") + theme_minimal(base_size = 16)
+#ggsave("inst/images/entropy.png")
+```
+
+When dealing with multiple languages and spheres of language usage, language entropy can  reduce the number of data points and generalizes well to multilingual contexts (whereas simple difference scores do not). We have also shown that language entropy relates to various cognitive and neural processes (Gullifer et al., 2018, Gullifer & Titone, under review). 
+
+# Installation
+`languageEntropy` can be installed through `devtools` using the code below.
+
+```{r eval=FALSE, include=TRUE}
+# Install devtools package if necessary
+if(!"devtools" %in% rownames(installed.packages())) install.packages("devtools")
+
+# Install the stable development verions from GitHub
+devtools::install_github("jasongullifer/languageEntropy")
+```
+
+# Usage
+This package works on subject-level data (i.e., one row per subject). The typical use case will be in computing language entropy (or any entropy really) given a set of proportions that sum to 1. For example, you might have a language history dataset where participants reported usage of the native language (L1), second language (L2), and third language (L3), as in the (fake) dataset below. 
+
+```{r echo=TRUE}
+data(entropyExData) # load example data
+print(entropyExData)
+```
+Here, five subjects reported L1/L2/L3 use in the home and at work (via 1-7 Likert scales, where 1 represents "no usage at all" and 7 represents "usage all the time"). They also reported percent usage of L1/L2/L3 overall. 
+
+We can compute language entropy at home, at work, and for overall usage with the `languageEntropy` package. The general steps are as follows:
+
+1. You must identify spheres of usage in which to compute entropy (e.g., here we choose home, at work, percent usage). 
+2. For each sphere of usage, convert your data to proportions of usage. We have convenience functions to convert Likert scales and percentages to proportions. Note: proportions should sum to 1 within each sphere of usage!
+3. For each sphere of usage, compute language entropy using `languageEntropy()`. 
+
+## Load example dataset
+```{r}
+library(languageEntropy)
+data(entropyExData) # load example data
+print(entropyExData)
+```
+
+## Step 1: Identify spheres of usage.
+We will compute entropy independently for the home sphere, the work sphere, and percent language usage. 
+
+## Step 2: Convert data to proportions for each sphere
+Some of our data is represented by Likert scales and some is represented as percentages. Both types of data should be converted to proportions. 
+
+For percentages, here is a concrete example of what we're doing: a participant (e.g., Subject 1) might report the following usage pattern at home: L1: 7 (all the time), L2: 7 (all the time), L3: 4 (sometimes). First, we rebaseline the Likert scale to 0, so that a score of 0 reflects "no usage", resulting in: L1: 6, L3:6, L3: 3. Next, each rebaselined usage is divided by the sum total (15), resulting in the following proportions of usage L1: 6/15, L2: 6/15, L3: 3/15.  
+
+Here's the R code to do this for each subject in the home sphere.
+```{r}
+entropyExData <- likert2prop(entropyExData, sub, L1Home, L2Home, L3Home)
+print(entropyExData)
+```
+
+Next, we'll convert the data from the work sphere. 
+```{r}
+entropyExData <- likert2prop(entropyExData, sub, L1Work, L2Work, L3Work)
+print(entropyExData)
+```
+
+Alternatively, `likert2prop()` can be told to separate the spheres and work on them individually with one command. This can be done by passing home and work usages as separate vectors within a list to the `colsList` argument.
+```{r}
+data(entropyExData) # reload example data
+entropyExData <- likert2prop(entropyExData, sub, colsList = list(c("L1Home", "L2Home", "L3Home"),
+                                                                 c("L1Work", "L2Work", "L3Work")))
+print(entropyExData)
+```
+
+Now for the percentages. There's also a helper function for this. 
+```{r}
+entropyExData <- percent2prop(entropyExData, L1PercentUse, L2PercentUse, L3PercentUse)
+
+print(entropyExData)
+```
+
+## Step 3: Compute language entropy for each sphere
+Home sphere
+```{r}
+entropyExData <- languageEntropy(entropyExData, sub, L1Home_prop, L2Home_prop, L3Home_prop, sphereName = "Home")
+print(entropyExData)
+```
+
+Work sphere
+```{r}
+entropyExData <- languageEntropy(entropyExData, sub, L1Work_prop, L2Work_prop, L3Work_prop, sphereName = "Work")
+print(entropyExData)
+```
+
+Overall use
+```{r}
+entropyExData <- languageEntropy(entropyExData, sub, L1PercentUse_prop, L2PercentUse_prop, L3PercentUse_prop, sphereName = "PercentUse")
+print(entropyExData)
+```
+
+Alternatively, `languageEntropy()` can be told to separate the various spheres with one command. This can be done by passing the different language usages as separate vectors within a list to the `colsList` argument, like we did above.
+```{r}
+entropyExData <- languageEntropy(entropyExData, sub, 
+                                 colsList = list(Home=c("L1Home_prop", "L2Home_prop", "L3Home_prop"),
+                                                 Work=c("L1Work_prop","L2Work_prop","L3Work_prop"),
+                                                 PercentUse=c("L1PercentUse_prop", "L2PercentUse_prop", "L3PercentUse_prop")))
+print(entropyExData)
+```
+
+# References
+
+Gullifer, J. W., Chai, X. J., Whitford, V., Pivneva, I., Baum, S., Klein, D., & Titone, D. (2018). Bilingual experience and resting-state brain connectivity: Impacts of L2 age of acquisition and social diversity of language use on control networks. _Neuropsychologia_, _117_, 123–134. http://doi.org/10.1016/j.neuropsychologia.2018.04.037
+
+Gullifer, J. W., & Titone, D. (under review). Characterizing the social diversity of bilingualism using language entropy.
+
+# Acknowledgments
+This work was supported by the Natural Sciences and Engineering Research Council of Canada (individual Discovery Grant, 264146 to Titone); the Social Sciences and Humanities Research Council of Canada (Insight Development Grant, 01037 to Gullifer & Titone); the National Institutes of Health (Postdoctoral training grant, F32-HD082983 to Gullifer, Titone, and Klein); the Centre for Research on Brain, Language & Music.
+
+Special thanks to [Ashley M. DaSilva](https://github.com/adasilva), Pauline Palma, [Mehrgol Tiv](https://github.com/mehrgoltiv), [Janet Van Hell](http://bild.la.psu.edu/people/principal-investigator), [Robert D. Vincent](http://www.bic.mni.mcgill.ca/users/bert/), Naomi Vingron, and Junyan Wei  for fruitful discussions regarding (language) entropy and the social diversity of language usage. 
+

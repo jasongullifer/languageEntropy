@@ -1,6 +1,6 @@
 citHeader("To cite languageEntropy in publications use:")
 
-citEntry(entry = "Article",
+citEntry(entry = "Manual",
   title        = "Compute language entropy with {languageEntropy}",
   author       = personList(as.person("Jason W. Gullifer")),
   year         = "2018",

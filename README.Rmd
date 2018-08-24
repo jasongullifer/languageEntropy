@@ -1,6 +1,6 @@
 ---
 title: "Compute language entropy with languageEntropy"
-author: "Jason W. Gullifer and Debra Titone"
+author: "Jason W. Gullifer"
 date: '2018-08-24'
 output:
   rmarkdown::github_document: default
@@ -13,7 +13,7 @@ library(languageEntropy)
 library(ggplot2)
 ```
 
-Use this package to compute language entropy within social spheres from language history data.
+Use this package to compute language entropy within social spheres from language history data. This package was developed by Jason W. Gullifer with conceptual input from Debra Titone. For more information see the following publications: Gullifer et al. (2018), Gullifer and Titone (under review).
 
 # Overview
 In the language sciences, we frequently collect data about language usage in different contexts such as daily exposure to known languages or daily language use in various communicative contexts. However, few people make use of these measures for a variety of reasons, including that the sheer number of variables related to usage for several languages can be overwhelming. 
@@ -32,7 +32,7 @@ ggplot(lang, aes(x=L2, y=ent)) + geom_line() + xlab("L2 exposure") + ylab("Langu
 #ggsave("inst/images/entropy.png")
 ```
 
-When dealing with multiple languages and spheres of language usage, language entropy can  reduce the number of data points and generalizes well to multilingual contexts (whereas simple difference scores do not). We have also shown that language entropy relates to various cognitive and neural processes. For more information see: Gullifer et al. (2018), Gullifer and Titone (under review).
+When dealing with multiple languages and spheres of language usage, language entropy can  reduce the number of data points and generalizes well to multilingual contexts (whereas simple difference scores do not). We have also shown that language entropy relates to various cognitive and neural processes (Gullifer et al., 2018, Gullifer & Titone, under review). 
 
 # Installation
 `languageEntropy` can be installed through `devtools` using the code below.

@@ -1,9 +1,9 @@
 Compute language entropy with languageEntropy
 ================
-Jason W. Gullifer and Debra Titone
+Jason W. Gullifer
 2018-08-24
 
-Use this package to compute language entropy within social spheres from language history data.
+Use this package to compute language entropy within social spheres from language history data. This package was developed by Jason W. Gullifer with conceptual input from Debra Titone. For more information see the following publications: Gullifer et al. (2018), Gullifer and Titone (under review).
 
 Overview
 ========
@@ -14,7 +14,7 @@ Language entropy is a measure that characterizes the diversity in language usage
 
 <img src="inst/images/entropy.png" alt="theoretical entropy distribution" width="500"/>
 
-When dealing with multiple languages and spheres of language usage, language entropy can reduce the number of data points and generalizes well to multilingual contexts (whereas simple difference scores do not). We have also shown that language entropy relates to various cognitive and neural processes. For more information see: Gullifer et al. (2018), Gullifer and Titone (under review).
+When dealing with multiple languages and spheres of language usage, language entropy can reduce the number of data points and generalizes well to multilingual contexts (whereas simple difference scores do not). We have also shown that language entropy relates to various cognitive and neural processes (Gullifer et al., 2018, Gullifer & Titone, under review).
 
 Installation
 ============

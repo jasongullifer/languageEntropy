@@ -31,12 +31,14 @@ As a concrete example, a participant might report the following usage pattern: L
 
 Examples
 --------
+Example (fake) dataset has 5 subjects. Subjects reported L1/L2/L3 use at home and at work. Home and work data are represented as Likert scales (1: uses Lx none at all; 7: uses Lx all the time). Subjects also reportedpercentage of L1/L2/L3 use overall. 
 
-Eventually I will supply various example usages with fake datasets. 
+```r
+library(languageEntropy)
+data(entropyExData) # load example data
 
-If you have a dataset that contains proportions of language usage that sum up to 1 (perhaps within some social sphere such as home, work or school, or perhaps overall), you can compute language entropy using the `languageEntropy()` function. You pass it your whole dataset, a bare (unquoted) column name that contains the unique subject ID, and bare (unquoted) column names that contain language usage (that total to 1). 
 
-There is also a helper function likert2prop(), which will take likert question data (passed to the function in a similar manner as above) and convert to proportions, for use in the languageEntropy() function.
+```
 
 
 References

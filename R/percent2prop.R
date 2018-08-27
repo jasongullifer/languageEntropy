@@ -1,4 +1,5 @@
 #' Function to convert to percentages to proportions
+#'
 #' @param data A dataset that includes columns of percentage data.
 #' @param id  ID column corresponding to the unique subject ID.
 #' @param ...  Columns of the dataset that contain the percentage data.

@@ -1,9 +1,17 @@
-#' Function to convert Likert to proportions
-#' @param data A dataset that includes columns of Likert data.
+#' Function to convert Likert scale data to proportions
+#'
+#' @param data Your dataset
 #' @param id  ID column corresponding to the unique subject ID.
-#' @param ...  Columns of the dataset that contain the Likert data. If using this argument, proportions will be computed using all columns specified here as the total. If you want to specify several groups of columns, where each group is totaled separately, you may specify them in the colsList agrument below.
-#' @param colsList  A list of grouped columns. E.g., list(c("L1Home","L2Home","L3Home"), c("L1Work","L2Work","L3Work")). Totals will be computed separately for each group.
-#' @param minLikert The minimum possible value of your Likert index / scale. Typically 1.
+#' @param ...  Columns of the dataset that contain the Likert data to be
+#'   converted to proportions. If using this argument, proportions for each column will be
+#'   computed by summing together all columns. If you want to specify groups of
+#'   columns to be converted independently, you may specify them in the colsList
+#'   argument instead
+#' @param colsList  A list of grouped columns. E.g.,
+#'   list(c("L1Home","L2Home","L3Home"), c("L1Work","L2Work","L3Work")). Totals
+#'   will be computed separately for each group.
+#' @param minLikert The minimum possible value of your Likert index / scale.
+#'   Typically 1. This is used in rebaselining Likert values to 0.
 #' @import dplyr
 #' @importFrom magrittr "%>%"
 #' @export
@@ -13,18 +21,18 @@
 #'
 #' # convert Likert scale data to proportions
 #'
-#' ## first for the home sphere
+#' ## first for the home context
 #' entropyExData <- likert2prop(entropyExData, sub, L1Home, L2Home, L3Home)
 #' print(entropyExData)
 #'
-#' # next for the work sphere
+#' # next for the work context
 #' entropyExData <- likert2prop(entropyExData, sub, L1Work, L2Work, L3Work)
 #' print(entropyExData)
 #'
 #' entropyExData <- likert2prop(entropyExData, sub, L1PercentUse, L2PercentUse, L3PercentUse)
 #' print(entropyExData)
 #'
-#' # alternatively, you can deal with home and work at the same time
+#' # alternatively, you can convert home and work at the same time
 #' # by passing home and work as separate vectors within a list
 #' data(entropyExData) # reload example data
 #' entropyExData <- likert2prop(entropyExData, sub, colsList = list(c("L1Home", "L2Home", "L3Home"), c("L1Work", "L2Work", "L3Work")))
@@ -43,11 +51,12 @@ likert2prop <- function(data, id, ..., colsList=NULL, minLikert=1){
   return(data)
 }
 
-#' Helper function to convert to Likert to proportions
-#' @param data A dataset that includes columns of Likert data.
+#' Helper function to convert to Likert to proportions. This function does all the work.
+#'
+#' @param data The dataset
 #' @param id_quo  Quoted ID variable corresponding to the unique subject ID
 #' @param cols_quo Quoted columns of the dataset that contain the Likert data.
-#' @param minLikert The minimum possible value of your Likert index / scale. Typically 1.
+#' @param minLikert The minimum possible value of the Likert index / scale. Typically 1. This is used in rebaselining Likert values to 0.
 #' @import dplyr
 #' @import tidyr
 #' @importFrom magrittr "%>%"

@@ -4,23 +4,30 @@
 \alias{languageEntropy}
 \title{languageEntropy function}
 \usage{
-languageEntropy(data, id, ..., sphereName = NULL, colsList = NULL,
+languageEntropy(data, id, ..., contextName = NULL, colsList = NULL,
   base = 2)
 }
 \arguments{
-\item{data}{A dataset that includes columns which will be converted into
-entropy}
+\item{data}{Your dataset}
 
-\item{id}{ID variable corresponding to the unique subject ID}
+\item{id}{ID column corresponding to the unique subject ID}
 
-\item{...}{Columns of the dataset that will be converted to entropy.}
+\item{...}{Columns of the dataset with proportions that will be used to compute
+entropy. If using this argument, entropy will be computed across all
+columns. Thus, these columns should pertain to a single context of language
+usage in which proportions sum to 1. However, if you want to specify several groups
+of columns to be converted independently, you may specify them in the
+colsList argument instead.}
 
-\item{sphereName}{A title you give for the resulting entropy column. Leave
+\item{contextName}{Name the context. This allows languageEntropy to name the resulting entropy column. Leave
 this NULL if you use colsList.}
 
 \item{colsList}{A list of grouped columns. Entropy will be computed
-separately for each group. E.g., list(Home=c("L1Home","L2Home","L3Home"),
-Work=c("L1Work","L2Work","L3Work")).}
+separately for each named group of columns. E.g.,
+list(Home=c("L1Home","L2Home","L3Home"),
+Work=c("L1Work","L2Work","L3Work")) will compute language entropy
+independently for Home and Work, and the resulting columns will be named
+based on what you write to the left of each equal sign.}
 
 \item{base}{Base of the logarithm. Default is Shannon Entropy with base 2.
 Other common bases are e (natural) and 10 (hartley).}
@@ -33,28 +40,28 @@ that contain the data to be converted into entropy (...).
 }
 \details{
 Note that entropy will be computed from proportions and these proportions
-should sum to 1 within a usage sphere. There are various helper functions to
-help you convert different types of data to propotions (likert2prop() and
+should sum to 1 within a usage context. There are various helper functions to
+help you convert different types of data to proportions (likert2prop() and
 percent2prop()).
 }
 \examples{
 library(languageEntropy)
 data(entropyExDataProp) # load example data with proportions
 
-# first for the home sphere
-entropyExDataProp <- languageEntropy(entropyExDataProp, sub, L1Home_prop, L2Home_prop, L3Home_prop, sphereName = "Home")
+# first for the home context
+entropyExDataProp <- languageEntropy(entropyExDataProp, sub, L1Home_prop, L2Home_prop, L3Home_prop, contextName = "Home")
 print(entropyExDataProp)
 
-# next for the work sphere
-entropyExDataProp <- languageEntropy(entropyExDataProp, sub, L1Work_prop, L2Work_prop, L3Work_prop, sphereName = "Work")
+# next for the work context
+entropyExDataProp <- languageEntropy(entropyExDataProp, sub, L1Work_prop, L2Work_prop, L3Work_prop, contextName = "Work")
 print(entropyExDataProp)
 
-# finally for percent/proportion usage sphere
-entropyExDataProp <- languageEntropy(entropyExDataProp, sub, L1PercentUse_prop, L2PercentUse_prop, L3PercentUse_prop, sphereName = "PercentUse")
+# finally for percent/proportion usage context
+entropyExDataProp <- languageEntropy(entropyExDataProp, sub, L1PercentUse_prop, L2PercentUse_prop, L3PercentUse_prop, contextName = "PercentUse")
 print(entropyExDataProp)
 
 # alternatively, you can deal with home, work and percent at the same time
-# by passing data for these spheres as separate vectors within a list
+# by passing data for these contexts as separate vectors within a list
 data(entropyExDataProp) #reload the data
 entropyExData <- languageEntropy(entropyExData, sub,
 colsList = list(Home=c("L1Home_prop", "L2Home_prop", "L3Home_prop"),

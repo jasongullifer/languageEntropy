@@ -2,19 +2,19 @@
 % Please edit documentation in R/likert2prop.R
 \name{conv2prop}
 \alias{conv2prop}
-\title{Helper function to convert to Likert to proportions}
+\title{Helper function to convert to Likert to proportions. This function does all the work.}
 \usage{
 conv2prop(data, id_quo, cols_quo, minLikert = 1)
 }
 \arguments{
-\item{data}{A dataset that includes columns of Likert data.}
+\item{data}{The dataset}
 
 \item{id_quo}{Quoted ID variable corresponding to the unique subject ID}
 
 \item{cols_quo}{Quoted columns of the dataset that contain the Likert data.}
 
-\item{minLikert}{The minimum possible value of your Likert index / scale. Typically 1.}
+\item{minLikert}{The minimum possible value of the Likert index / scale. Typically 1. This is used in rebaselining Likert values to 0.}
 }
 \description{
-Helper function to convert to Likert to proportions
+Helper function to convert to Likert to proportions. This function does all the work.
 }

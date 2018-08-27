@@ -4,18 +4,18 @@
 \alias{codeEntropy}
 \title{Helper function to convert code language entropy}
 \usage{
-codeEntropy(data, id_quo, cols_quo, sphereName, base)
+codeEntropy(data, id_quo, cols_quo, contextName, base)
 }
 \arguments{
-\item{data}{A dataset that includes columns of Likert data.}
+\item{data}{The dataset}
 
 \item{id_quo}{Quoted ID variable corresponding to the unique subject ID}
 
-\item{cols_quo}{Quoted columns of the dataset that contain the Likert data.}
+\item{cols_quo}{Quoted columns of the dataset that be used to compute entropy}
 
-\item{sphereName}{Title for the resulting entropy column.}
+\item{contextName}{Title for the resulting entropy column}
 
-\item{base}{Base of the logarithm.}
+\item{base}{Base of the logarithm}
 }
 \description{
 Helper function to convert code language entropy

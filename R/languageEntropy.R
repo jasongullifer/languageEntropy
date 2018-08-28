@@ -58,6 +58,11 @@
 languageEntropy <- function(data, id, ..., contextName = NULL, colsList=NULL, base=2){
   id_quo = dplyr::enquo(id)
 
+  cd <- checkDuplicateID(data, id_quo)
+  if(!is.null(cd)){
+    stop(paste0("You have duplicate identifiers in your data: ", cd))
+  }
+
   if(is.null(contextName) & is.null(colsList)){
     contextName = "mycontext"
     warning("You didn't name your usage context by supplying a 'contextName' argument. I'm going to name your context 'mycontext.' Note if this happens again, your entropy value will be overwritten, so it is better to give an actual name.")

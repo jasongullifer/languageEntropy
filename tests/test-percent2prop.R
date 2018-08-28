@@ -1,3 +1,8 @@
+# parameters
+min_percent = 0
+max_percent = 100
+percent_interval = 5
+
 # tests for percent2prop
 source("tests/helper-genData.R")
 

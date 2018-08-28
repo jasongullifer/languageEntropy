@@ -1,15 +1,20 @@
 library(dplyr)
 library(tidyr)
 
+# parameters
+min_likert = 1
+max_likert = 7
+langs = 3
+
 # tests for likert2prop
 source("tests/helper-genData.R")
 
-likerts <- genLikertData()
+likerts <- genLikertData(min_likert = min_likert, max_likert = max_likert, langs=3)
 
 cols <- colnames(likerts %>% select(contains("L")))
 
 ## rebaseline likerts at 0
-likerts <- likerts %>% mutate_at(.vars=vars(contains("L")), .funs = funs(rb=.- min_likert))
+likerts <- likerts %>% mutate_at(.vars=vars(contains("L")), .funs = funs(rb = .- min_likert))
 
 ## compute proportions
 likerts.prop <- likerts %>% gather(measure, value, contains("rb")) %>% group_by(sub) %>% mutate(total=sum(value)) %>% ungroup()
@@ -32,4 +37,9 @@ length(likerts$prop_test[is.na(likerts$prop_test)]) == 1
 
 ## TEST that the remaining values all match, besides the 1 NA
 length(likerts$prop_test[likerts$prop_test & !is.na(likerts$prop_test)]) == nrow(likerts) - 1
+
+
+duplikerts <- rbind(likerts, likerts[likerts$sub=="15",])
+# TEST that likert2prop throws error with duplicate subjects
+likert2prop(duplikerts, sub, L1, L2, L3)
 

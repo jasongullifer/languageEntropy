@@ -39,6 +39,11 @@
 #' print(entropyExData)
 likert2prop <- function(data, id, ..., colsList=NULL, minLikert=1){
   id_quo <- dplyr::enquo(id)
+  cd <- checkDuplicateID(data, id_quo)
+  if(!is.null(cd)){
+    stop(paste0("You have duplicate identifiers in your data: ", cd))
+    }
+
   if(is.null(colsList)){ # if not using colsList, convert once for all columns specified in ...
     cols_quo <- dplyr::quos(...)
     data <- conv2prop(data, id_quo, cols_quo, minLikert = minLikert)

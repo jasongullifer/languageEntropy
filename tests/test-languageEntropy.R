@@ -5,6 +5,12 @@ source("tests/test-percent2prop.R")
 
 # parameters
 base = 2             # log base for entropy
+min_likert = 1
+max_likert = 7
+langs = 3
+min_percent = 0
+max_percent = 100
+percent_interval = 5
 
 # tests for languageEntropy
 ## compute entropy
@@ -28,6 +34,10 @@ all.equal(max(likerts$prop.entropy, na.rm=T), log(langs, base=base))
 
 ## TEST that min entropy is approx. equal to log(langs, base=base)
 min(likerts$prop.entropy, na.rm=T) == 0
+
+duppercents <- rbind(percents, percents[percents$sub=="15",])
+# TEST that languageEntropy throws error with duplicate subjects
+languageEntropy(duppercents, id = sub, L1_prop, L2_prop, contextName = "percent", base=base)
 
 
 plot(percents$L1_prop, percents$percent.entropy)

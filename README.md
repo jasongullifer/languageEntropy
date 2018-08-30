@@ -9,6 +9,9 @@ Use this package to compute language entropy from language history data. This pa
 
 If you use this package in your research, please consider citing us:
 
+    ## Warning: 'DESCRIPTION' file has an 'Encoding' field and re-encoding is not
+    ## possible
+
     ## 
     ## To cite languageEntropy in publications use:
     ## 

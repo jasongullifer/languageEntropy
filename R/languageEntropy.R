@@ -92,9 +92,10 @@ languageEntropy <- function(data, id, ..., contextName = NULL, colsList=NULL, ba
 #' @export
 codeEntropy <- function(data, id_quo, cols_quo, contextName, base){
   check <- data %>% dplyr::group_by(!!id_quo) %>% tidyr::gather(measure, value, !!!cols_quo) %>% dplyr::summarise(sum=sum(value, na.rm=T))
-  if (any(!(check$sum == 1))){
+  colnames(check)[colnames(check) == "sum"] <- paste(contextName, "sum", sep = ".")
+  if (any(!(check[,2] == 1))){
     warning("Proportions for one or more subjects do not add up to 1. Resulting entropy values may be problematic. This warning may also occur if you converted percentages to proportions and the sum is very close to 1. Please check:")
-    print(check)
+    print(check[check[,2] < 1 & check[,2] > 0,])
   }
 
   df <- data %>% dplyr::group_by(!!id_quo) %>%  tidyr::gather(measure, value, !!!cols_quo) %>%

@@ -21,6 +21,10 @@ If you use this package in your research, please consider citing us:
 print(citation("languageEntropy"),bibtex=F)
 ```
 
+# Frequently asked questions
+
+See the FAQ [here](FAQ.md).
+
 # Overview
 In the language sciences, we frequently collect data about language usage in various contexts, such as overall daily exposure to known languages or extent of language use in communicative contexts (e.g., at home, at work, in social settings). However, there is not wide usage of these various measures as covariates or predictors of behavior, despite their practical and theoretical significance. One reason for underuse is that the number of variables related to usage in a multilingual context can be overwhelming. Another reason for underuse is that the distribution of these data may not be ideal for analysis, particularly if they were collected via discrete responses (such as Likert scales). Language entropy helps to solve some of these issues. 
 

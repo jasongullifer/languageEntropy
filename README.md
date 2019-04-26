@@ -9,11 +9,7 @@ Use this package to compute language entropy from language history data.
 This package and the functions within were developed by Jason Gullifer
 with conceptual input from Debra Titone.
 
-If you use this package in your research, please consider citing
-    us:
-
-    ## Warning: 'DESCRIPTION' file has an 'Encoding' field and re-encoding is not
-    ## possible
+If you use this package in your research, please consider citing us:
 
     ## 
     ## To cite languageEntropy in publications use:
@@ -21,16 +17,17 @@ If you use this package in your research, please consider citing
     ##   Gullifer, J. W., & Titone, D. (2018). Compute language entropy
     ##   with {languageEntropy}. Retrieved from
     ##   https://github.com/jasongullifer/languageEntropy.
-    ##   doi:10.5281/zenodo.1403272
+    ##   http://doi.org/10.5281/zenodo.1403272
     ## 
-    ##   Gullifer, J. W., & Titone, D. (under review). Characterizing the
-    ##   social diversity of bilingualism using language entropy.
+    ##   Gullifer, J. W., & Titone, D. (2019). Characterizing the social
+    ##   diversity of bilingualism using language entropy. Bilingualism:
+    ##   Language and Cognition. http://doi.org/10.1017/S1366728919000026
     ## 
     ##   Gullifer, J. W., Chai, X. J., Whitford, V., Pivneva, I., Baum,
     ##   S., Klein, D., & Titone, D. (2018). Bilingual experience and
     ##   resting-state brain connectivity: Impacts of L2 age of
     ##   acquisition and social diversity of language use on control
-    ##   networks. Neuropsychologia, 117, 123–134.
+    ##   networks. Neuropsychologia, 117, 123-134.
     ##   http://doi.org/10.1016/j.neuropsychologia.2018.04.037
 
 # Frequently asked questions
@@ -385,14 +382,10 @@ entropyExData <- languageEntropy(entropyExData, sub, L1PercentUse_prop, L2Percen
     ## values may be problematic. This warning may also occur if you converted
     ## percentages to proportions and the sum is very close to 1. Please check:
 
-    ## # A tibble: 5 x 2
-    ##     sub   sum
-    ##   <int> <dbl>
-    ## 1     1  1   
-    ## 2     2  1   
-    ## 3     3  1   
-    ## 4     4  0.99
-    ## 5     5  1
+    ## # A tibble: 1 x 2
+    ##     sub PercentUse.sum
+    ##   <int>          <dbl>
+    ## 1     4           0.99
 
 ``` r
 print(entropyExData)
@@ -442,14 +435,10 @@ entropyExData <- languageEntropy(entropyExData, sub,
     ## converted percentages to proportions and the sum is very close to 1. Please
     ## check:
 
-    ## # A tibble: 5 x 2
-    ##     sub   sum
-    ##   <int> <dbl>
-    ## 1     1  1   
-    ## 2     2  1   
-    ## 3     3  1   
-    ## 4     4  0.99
-    ## 5     5  1
+    ## # A tibble: 1 x 2
+    ##     sub PercentUse.sum
+    ##   <int>          <dbl>
+    ## 1     4           0.99
 
 ``` r
 print(entropyExData)
@@ -496,10 +485,11 @@ diversity of language use on control networks. *Neuropsychologia*,
 
 Green, D. W., & Abutalebi, J. (2013). Language control in bilinguals:
 The adaptive control hypothesis. *Journal of Cognitive Psychology*,
-*25*, 515–530. <http://doi.org/10.1080/20445911.2013.796377>
+*25*, 515–530. <https://doi.org/10.1080%2F20445911.2013.796377>
 
 Gullifer, J. W., & Titone, D. (under review). Characterizing the social
-diversity of bilingualism using language entropy.
+diversity of bilingualism using language entropy. *Bilingualism:
+Language and Cognition.* <http://doi.org/10.1017/S1366728919000026>
 
 # Acknowledgments
 

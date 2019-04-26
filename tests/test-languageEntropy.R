@@ -13,6 +13,7 @@ max_percent = 100
 percent_interval = 5
 
 # tests for languageEntropy
+
 ## compute entropy
 cols <- colnames(likerts %>% select(contains("_prop")))
 likerts <- languageEntropy(likerts, id = sub, !!cols, contextName = "prop", base = base)

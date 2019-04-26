@@ -21,6 +21,10 @@ If you use this package in your research, please consider citing us:
 print(citation("languageEntropy"),bibtex=F)
 ```
 
+# Frequently asked questions
+
+See the FAQ [here](FAQ.md).
+
 # Overview
 In the language sciences, we frequently collect data about language usage in various contexts, such as overall daily exposure to known languages or extent of language use in communicative contexts (e.g., at home, at work, in social settings). However, there is not wide usage of these various measures as covariates or predictors of behavior, despite their practical and theoretical significance. One reason for underuse is that the number of variables related to usage in a multilingual context can be overwhelming. Another reason for underuse is that the distribution of these data may not be ideal for analysis, particularly if they were collected via discrete responses (such as Likert scales). Language entropy helps to solve some of these issues. 
 
@@ -146,9 +150,9 @@ print(entropyExData)
 # References
 Gullifer, J. W., Chai, X. J., Whitford, V., Pivneva, I., Baum, S., Klein, D., & Titone, D. (2018). Bilingual experience and resting-state brain connectivity: Impacts of L2 age of acquisition and social diversity of language use on control networks. _Neuropsychologia_, _117_, 123–134. http://doi.org/10.1016/j.neuropsychologia.2018.04.037
 
-Green, D. W., & Abutalebi, J. (2013). Language control in bilinguals: The adaptive control hypothesis. _Journal of Cognitive Psychology_, _25_, 515–530. http://doi.org/10.1080/20445911.2013.796377
+Green, D. W., & Abutalebi, J. (2013). Language control in bilinguals: The adaptive control hypothesis. _Journal of Cognitive Psychology_, _25_, 515–530. https://doi.org/10.1080%2F20445911.2013.796377
 
-Gullifer, J. W., & Titone, D. (under review). Characterizing the social diversity of bilingualism using language entropy.
+Gullifer, J. W., & Titone, D. (under review). Characterizing the social diversity of bilingualism using language entropy. _Bilingualism: Language and Cognition._ http://doi.org/10.1017/S1366728919000026
 
 # Acknowledgments
 This work was supported by the Natural Sciences and Engineering Research Council of Canada (individual Discovery Grant, 264146 to Titone); the Social Sciences and Humanities Research Council of Canada (Insight Development Grant, 01037 to Gullifer & Titone); the National Institutes of Health (Postdoctoral training grant, F32-HD082983 to Gullifer, Titone, and Klein); the Centre for Research on Brain, Language & Music.

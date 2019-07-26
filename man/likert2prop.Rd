@@ -47,6 +47,8 @@ print(entropyExData)
 # alternatively, you can convert home and work at the same time
 # by passing home and work as separate vectors within a list
 data(entropyExData) # reload example data
-entropyExData <- likert2prop(entropyExData, sub, colsList = list(c("L1Home", "L2Home", "L3Home"), c("L1Work", "L2Work", "L3Work")))
+entropyExData <- likert2prop(entropyExData, sub,
+colsList = list(c("L1Home", "L2Home", "L3Home"),
+c("L1Work", "L2Work", "L3Work")))
 print(entropyExData)
 }

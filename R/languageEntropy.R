@@ -73,7 +73,7 @@ languageEntropy <- function(data, id, ..., contextName = NULL, colsList=NULL, ba
     data <- codeEntropy(data, id_quo, cols_quo, contextName = contextName, base = base)
   }else if(is.list(colsList)){
     for(name in names(colsList)){
-      cur_cols_quo = dplyr::quos(!!!colsList[name])
+      cur_cols_quo = dplyr::enquos(!!!colsList[name])
       data <- codeEntropy(data, id_quo, cur_cols_quo, contextName = name, base = base)
     }
   }
@@ -96,10 +96,8 @@ codeEntropy <- function(data, id_quo, cols_quo, contextName, base){
 
   if (any(!(check[,2] == 1))){
     warning("Proportions for one or more subjects do not add up to 1. Resulting entropy values may be problematic. This warning may also occur if you converted percentages to proportions and the sum is very close to 1. Please check:")
-
     check %>%
       filter(.[[2]]>0 & .[[2]] < 1 )
-
   }
 
   df <- data %>% dplyr::group_by(!!id_quo) %>%  tidyr::gather(measure, value, !!!cols_quo) %>%

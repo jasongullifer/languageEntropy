@@ -96,8 +96,10 @@ codeEntropy <- function(data, id_quo, cols_quo, contextName, base){
 
   if (any(!(check[,2] == 1))){
     warning("Proportions for one or more subjects do not add up to 1. Resulting entropy values may be problematic. This warning may also occur if you converted percentages to proportions and the sum is very close to 1. Please check:")
-    check %>%
+    to_print <- check %>%
       filter(.[[2]]>0 & .[[2]] < 1 )
+
+    print(to_print)
   }
 
   df <- data %>% dplyr::group_by(!!id_quo) %>%  tidyr::gather(measure, value, !!!cols_quo) %>%

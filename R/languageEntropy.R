@@ -73,7 +73,7 @@ languageEntropy <- function(data, id, ..., contextName = NULL, colsList=NULL, ba
     data <- codeEntropy(data, id_quo, cols_quo, contextName = contextName, base = base)
   }else if(is.list(colsList)){
     for(name in names(colsList)){
-      cur_cols_quo = dplyr::enquos(!!!colsList[name])
+      cur_cols_quo = colsList[[name]]
       data <- codeEntropy(data, id_quo, cur_cols_quo, contextName = name, base = base)
     }
   }

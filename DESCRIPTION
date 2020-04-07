@@ -1,7 +1,7 @@
 Package: languageEntropy
 Type: Package
 Title: Compute language entropy with {languageEntropy}
-Version: 0.1.0
+Version: 1.0.0
 Author: Jason W. Gullifer
 Maintainer: Jason W. Gullifer <jason.gullifer@mail.mcgill.ca>
 Description: Use this package to compute language entropy from language history data. 
@@ -12,4 +12,6 @@ Imports:
     dplyr,
     magrittr,
     tidyr
-RoxygenNote: 6.1.1
+RoxygenNote: 7.1.0
+Suggests: 
+    testthat (>= 2.1.0)

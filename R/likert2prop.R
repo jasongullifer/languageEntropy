@@ -47,11 +47,11 @@ likert2prop <- function(data, id, ..., colsList=NULL, minLikert=1){
     }
 
   if(is.null(colsList)){ # if not using colsList, convert once for all columns specified in ...
-    cols_quo <- dplyr::quos(...)
+    cols_quo <- dplyr::enquos(...)
     data <- conv2prop(data, id_quo, cols_quo, minLikert = minLikert)
   }else if (is.list(colsList)){ #if using cols list, convert for each group of columns in the list
     for(item in colsList){
-      cur_cols_quo = dplyr::quos(!!!item)
+      cur_cols_quo = dplyr::enquos(item)
       data <- conv2prop(data, id_quo, cur_cols_quo, minLikert = minLikert)
     }
   }

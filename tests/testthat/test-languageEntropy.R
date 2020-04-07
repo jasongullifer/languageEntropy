@@ -1,7 +1,7 @@
 library(dplyr)
 
-source("tests/test-likert2prop.R")
-source("tests/test-percent2prop.R")
+source("test-likert2prop.R")
+source("test-percent2prop.R")
 
 # parameters
 base = 2             # log base for entropy
@@ -31,14 +31,20 @@ percents <- languageEntropy(percents, id = sub, L1_prop, L2_prop, contextName = 
 # length(likerts$entropy_test[likerts$entropy_test & !is.na(likerts$entropy_test)]) == nrow(likerts)-1
 
 ## TEST that max entropy is approx. equal to log(langs, base=base)
-all.equal(max(likerts$prop.entropy, na.rm=T), log(langs, base=base))
+test_that("max entropy is approx. equal to log(langs, base=base)", {
+  expect_equal(max(likerts$prop.entropy, na.rm=T), log(langs, base=base))
+})
 
-## TEST that min entropy is approx. equal to log(langs, base=base)
-min(likerts$prop.entropy, na.rm=T) == 0
+## TEST that min entropy is 0
+test_that("min entropy is 0", {
+  expect_equal(min(likerts$prop.entropy, na.rm=T), 0)
+})
+
 
 duppercents <- rbind(percents, percents[percents$sub=="15",])
+
 # TEST that languageEntropy throws error with duplicate subjects
-languageEntropy(duppercents, id = sub, L1_prop, L2_prop, contextName = "percent", base=base)
-
-
-plot(percents$L1_prop, percents$percent.entropy)
+test_that("languageEntropy throws error with duplicate subjects",{
+  expect_error(languageEntropy(duppercents, id = sub, L1_prop, L2_prop, contextName = "percent", base=base),
+               "You have duplicate identifiers in your data: 15")
+})

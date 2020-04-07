@@ -51,7 +51,7 @@
 #' # alternatively, you can deal with home, work and percent at the same time
 #' # by passing data for these contexts as separate vectors within a list
 #' data(entropyExDataProp) #reload the data
-#' entropyExData <- languageEntropy(entropyExData, sub,
+#' entropyExDataProp <- languageEntropy(entropyExDataProp, sub,
 #' colsList = list(Home=c("L1Home_prop", "L2Home_prop", "L3Home_prop"),
 #'                 Work=c("L1Work_prop","L2Work_prop","L3Work_prop"),
 #'                 PercentUse=c("L1PercentUse_prop", "L2PercentUse_prop", "L3PercentUse_prop")))
@@ -69,11 +69,11 @@ languageEntropy <- function(data, id, ..., contextName = NULL, colsList=NULL, ba
   }
 
   if(is.null(colsList)){
-    cols_quo <- dplyr::quos(...)
+    cols_quo <- dplyr::enquos(...)
     data <- codeEntropy(data, id_quo, cols_quo, contextName = contextName, base = base)
   }else if(is.list(colsList)){
     for(name in names(colsList)){
-      cur_cols_quo = dplyr::quos(!!!colsList[name])
+      cur_cols_quo = colsList[[name]]
       data <- codeEntropy(data, id_quo, cur_cols_quo, contextName = name, base = base)
     }
   }
@@ -93,9 +93,13 @@ languageEntropy <- function(data, id, ..., contextName = NULL, colsList=NULL, ba
 codeEntropy <- function(data, id_quo, cols_quo, contextName, base){
   check <- data %>% dplyr::group_by(!!id_quo) %>% tidyr::gather(measure, value, !!!cols_quo) %>% dplyr::summarise(sum=sum(value, na.rm=T))
   colnames(check)[colnames(check) == "sum"] <- paste(contextName, "sum", sep = ".")
+
   if (any(!(check[,2] == 1))){
     warning("Proportions for one or more subjects do not add up to 1. Resulting entropy values may be problematic. This warning may also occur if you converted percentages to proportions and the sum is very close to 1. Please check:")
-    print(check[check[,2] < 1 & check[,2] > 0,])
+    to_print <- check %>%
+      filter(.[[2]]>0 & .[[2]] < 1 )
+
+    print(to_print)
   }
 
   df <- data %>% dplyr::group_by(!!id_quo) %>%  tidyr::gather(measure, value, !!!cols_quo) %>%

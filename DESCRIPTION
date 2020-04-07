@@ -9,9 +9,9 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Imports:
-    dplyr,
-    magrittr,
-    tidyr
+    dplyr (>= 0.8.5),
+    magrittr (>= 1.5),
+    tidyr (>= 1.0.2)
 RoxygenNote: 7.1.0
 Suggests: 
     testthat (>= 2.1.0)

@@ -8,6 +8,7 @@ output:
 ---
 
 [![DOI](https://zenodo.org/badge/142208995.svg)](https://zenodo.org/badge/latestdoi/142208995)
+[![Build Status](https://travis-ci.org/jasongullifer/languageEntropy.svg?branch=master)](https://travis-ci.org/jasongulilfer/languageEntropy)
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(languageEntropy)

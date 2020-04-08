@@ -4,6 +4,8 @@ Jason W. Gullifer and Debra Titone
 2018-08-24
 
 [![DOI](https://zenodo.org/badge/142208995.svg)](https://zenodo.org/badge/latestdoi/142208995)
+[![Build
+Status](https://travis-ci.org/jasongullifer/languageEntropy.svg?branch=master)](https://travis-ci.org/jasongulilfer/languageEntropy)
 
 Use this package to compute language entropy from language history data.
 This package and the functions within were developed by Jason Gullifer
@@ -14,8 +16,8 @@ If you use this package in your research, please consider citing us:
     ## 
     ## To cite languageEntropy in publications use:
     ## 
-    ##   Gullifer, J. W., & Titone, D. (2018). Compute language entropy
-    ##   with {languageEntropy}. Retrieved from
+    ##   Gullifer, J. W., & Titone, D. (2018). Compute language entropy with
+    ##   {languageEntropy}. Retrieved from
     ##   https://github.com/jasongullifer/languageEntropy.
     ##   http://doi.org/10.5281/zenodo.1403272
     ## 
@@ -23,11 +25,11 @@ If you use this package in your research, please consider citing us:
     ##   diversity of bilingualism using language entropy. Bilingualism:
     ##   Language and Cognition. http://doi.org/10.1017/S1366728919000026
     ## 
-    ##   Gullifer, J. W., Chai, X. J., Whitford, V., Pivneva, I., Baum,
-    ##   S., Klein, D., & Titone, D. (2018). Bilingual experience and
-    ##   resting-state brain connectivity: Impacts of L2 age of
-    ##   acquisition and social diversity of language use on control
-    ##   networks. Neuropsychologia, 117, 123-134.
+    ##   Gullifer, J. W., Chai, X. J., Whitford, V., Pivneva, I., Baum, S.,
+    ##   Klein, D., & Titone, D. (2018). Bilingual experience and
+    ##   resting-state brain connectivity: Impacts of L2 age of acquisition
+    ##   and social diversity of language use on control networks.
+    ##   Neuropsychologia, 117, 123-134.
     ##   http://doi.org/10.1016/j.neuropsychologia.2018.04.037
 
 # Frequently asked questions
@@ -431,9 +433,8 @@ entropyExData <- languageEntropy(entropyExData, sub,
 
     ## Warning in codeEntropy(data, id_quo, cur_cols_quo, contextName = name, base
     ## = base): Proportions for one or more subjects do not add up to 1. Resulting
-    ## entropy values may be problematic. This warning may also occur if you
-    ## converted percentages to proportions and the sum is very close to 1. Please
-    ## check:
+    ## entropy values may be problematic. This warning may also occur if you converted
+    ## percentages to proportions and the sum is very close to 1. Please check:
 
     ## # A tibble: 1 x 2
     ##     sub PercentUse.sum

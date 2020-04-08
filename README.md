@@ -6,6 +6,8 @@ Jason W. Gullifer and Debra Titone
 [![DOI](https://zenodo.org/badge/142208995.svg)](https://zenodo.org/badge/latestdoi/142208995)
 [![Build
 Status](https://travis-ci.org/jasongullifer/languageEntropy.svg?branch=master)](https://travis-ci.org/jasongullifer/languageEntropy)
+[![Codecov test
+coverage](https://codecov.io/gh/jasongullifer/languageEntropy/branch/master/graph/badge.svg)](https://codecov.io/gh/jasongullifer/languageEntropy?branch=master)
 
 Use this package to compute language entropy from language history data.
 This package and the functions within were developed by Jason Gullifer

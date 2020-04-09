@@ -20,16 +20,12 @@ percents.colslist <- languageEntropy(percents, id = sub, base=base, colsList = l
 likerts <- languageEntropy(likerts, id = sub, !!cols, contextName = "prop", base = base)
 percents <- languageEntropy(percents, id = sub, L1_prop, L2_prop, contextName = "percent", base=base)
 
-# should run an entropy computation by hand and cross check with the function
-#### HERE
-# ## TEST for equality between by hand entropy and languageEntropy()
-# likerts$entropy_test <- likerts$prop.entropy == likerts$p.entropy
-#
-# ## TEST that there should be 1 NA, since as the sub with every likert at baseline will be undefined
-# length(likerts$entropy_test[is.na(likerts$entropy_test)]) == 1
-#
-# ## TEST that the remaining values all match, besides the 1 NA
-# length(likerts$entropy_test[likerts$entropy_test & !is.na(likerts$entropy_test)]) == nrow(likerts)-1
+# test that languageEntropy provides same result as last time
+test_that("languageEntropy provides the same result as previous run", {
+  expect_known_output(likerts, "likerts.txt", print=T)
+  expect_known_output(percents, "percent.txt", print=T)
+  expect_known_output(percents.colslist, "percents.colsList.txt", print=T)
+})
 
 ## TEST that max entropy is approx. equal to log(langs, base=base)
 test_that("max entropy is approx. equal to log(langs, base=base)", {

@@ -15,7 +15,7 @@
 #' entropyExData <- percent2prop(entropyExData, L1PercentUse, L2PercentUse, L3PercentUse)
 #' print(entropyExData)
 percent2prop <- function(data, ...){
-  cols_quo   = dplyr::quos(...)
+  cols_quo   = dplyr::enquos(...)
   data <- data %>% dplyr::mutate_at(.vars=vars(!!!cols_quo), .funs=dplyr::funs(prop=./100))
   return(data)
 }

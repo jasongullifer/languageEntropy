@@ -4,8 +4,7 @@
 \alias{languageEntropy}
 \title{languageEntropy function}
 \usage{
-languageEntropy(data, id, ..., contextName = NULL, colsList = NULL,
-  base = 2)
+languageEntropy(data, id, ..., contextName = NULL, colsList = NULL, base = 2)
 }
 \arguments{
 \item{data}{Your dataset}
@@ -63,7 +62,7 @@ print(entropyExDataProp)
 # alternatively, you can deal with home, work and percent at the same time
 # by passing data for these contexts as separate vectors within a list
 data(entropyExDataProp) #reload the data
-entropyExData <- languageEntropy(entropyExData, sub,
+entropyExDataProp <- languageEntropy(entropyExDataProp, sub,
 colsList = list(Home=c("L1Home_prop", "L2Home_prop", "L3Home_prop"),
                 Work=c("L1Work_prop","L2Work_prop","L3Work_prop"),
                 PercentUse=c("L1PercentUse_prop", "L2PercentUse_prop", "L3PercentUse_prop")))

@@ -13,7 +13,8 @@ Use this package to compute language entropy from language history data.
 This package and the functions within were developed by Jason Gullifer
 with conceptual input from Debra Titone.
 
-If you use this package in your research, please consider citing us:
+If you use this package in your research, please consider referencing
+our other work:
 
     ## 
     ## To cite languageEntropy in publications use:
@@ -59,8 +60,7 @@ represents compartmentalized usage of a single language and
 `log(number_of_languages, base=2)` represents perfectly balanced usage
 of each reported language. Below, you can see an example of the
 theoretical distribution of entropy vs. proportion of L2 exposure (for a
-situation in which two languages are
-used).
+situation in which two languages are used).
 
 <img src="inst/images/entropy.png" alt="theoretical entropy distribution" width="500"/>
 
@@ -75,6 +75,12 @@ various cognitive and neural processes (see Gullifer et al., 2018;
 Gullifer & Titone, under review). Language entropy generalizes well to
 multilingual contexts (while reducing the number of variables), and it
 is distributed continuously.
+
+Of note, various forms of entropy have been used previously to quantify
+language use in other domains: for example, entropy has been used to
+assess diversity in multilingual language use on Twitter (e.g., Eleta &
+Golbeck, 2014) and the distribution of programming language choice among
+software developers (Krein, MacLean, Delorey, Knutson, & Eggett, 2009).
 
 # Installation
 
@@ -267,12 +273,27 @@ print(entropyExData)
     ## 5   0.7142857
 
 Now we will convert the percentages to proportions with the helper
-function
-`percent2prop()`.
+function `percent2prop()`.
 
 ``` r
 entropyExData <- percent2prop(entropyExData, L1PercentUse, L2PercentUse, L3PercentUse)
+```
 
+    ## Warning: `funs()` is deprecated as of dplyr 0.8.0.
+    ## Please use a list of either functions or lambdas: 
+    ## 
+    ##   # Simple named list: 
+    ##   list(mean = mean, median = median)
+    ## 
+    ##   # Auto named with `tibble::lst()`: 
+    ##   tibble::lst(mean, median)
+    ## 
+    ##   # Using lambdas
+    ##   list(~ mean(., trim = .2), ~ median(., na.rm = TRUE))
+    ## This warning is displayed once every 8 hours.
+    ## Call `lifecycle::last_warnings()` to see where this warning was generated.
+
+``` r
 print(entropyExData)
 ```
 
@@ -305,8 +326,7 @@ Compute entropy for the home context. We again specify the dataset
 (`entropyExData`), the subject ID column (`sub`), and the columns that
 contain context-specific proportions (`L1Home_prop`, `L2Home_prop`, and
 `L3Home_prop`). You should also supply the `contextName` arguments,
-which allows `languageEntropy()` to give your new entropy column a
-name.
+which allows `languageEntropy()` to give your new entropy column a name.
 
 ``` r
 entropyExData <- languageEntropy(entropyExData, sub, L1Home_prop, L2Home_prop, L3Home_prop, 
@@ -339,8 +359,7 @@ print(entropyExData)
     ## 4    1.2987949
     ## 5    0.0000000
 
-Now we do the same for the work
-context.
+Now we do the same for the work context.
 
 ``` r
 entropyExData <- languageEntropy(entropyExData, sub, L1Work_prop, L2Work_prop, L3Work_prop, 
@@ -373,8 +392,7 @@ print(entropyExData)
     ## 4    1.2987949    1.5849625
     ## 5    0.0000000    1.1488349
 
-No we do the same for overall
-use.
+No we do the same for overall use.
 
 ``` r
 entropyExData <- languageEntropy(entropyExData, sub, L1PercentUse_prop, L2PercentUse_prop, L3PercentUse_prop, 
@@ -480,6 +498,10 @@ print(entropyExData)
 
 # References
 
+Eleta, I., & Golbeck, J. (2014). Multilingual use of twitter: Social
+networks at the language frontier. *Computers in Human Behavior*, *41*,
+424-432. <doi:10.1016/j.chb.2014.05.005>
+
 Gullifer, J. W., Chai, X. J., Whitford, V., Pivneva, I., Baum, S.,
 Klein, D., & Titone, D. (2018). Bilingual experience and resting-state
 brain connectivity: Impacts of L2 age of acquisition and social
@@ -493,6 +515,11 @@ The adaptive control hypothesis. *Journal of Cognitive Psychology*,
 Gullifer, J. W., & Titone, D. (under review). Characterizing the social
 diversity of bilingualism using language entropy. *Bilingualism:
 Language and Cognition.* <http://doi.org/10.1017/S1366728919000026>
+
+Krein, J. L., MacLean, A. C., Delorey, D. P., Knutson, C. D., & Eggett,
+D. L. (2009). Language entropy: A metric for characterization of author
+programming language distribution. Paper presented at the 4th Workshop
+on Public Data about Software Development.
 
 # Acknowledgments
 

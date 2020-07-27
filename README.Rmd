@@ -20,7 +20,7 @@ library(ggplot2)
 
 Use this package to compute language entropy from language history data. This package and the functions within were developed by Jason Gullifer with conceptual input from Debra Titone. 
 
-If you use this package in your research, please consider citing us:
+If you use this package in your research, please consider referencing our other work:
 ```{r echo=FALSE}
 print(citation("languageEntropy"),bibtex=F)
 ```
@@ -46,6 +46,8 @@ ggplot(lang, aes(x=L2, y=ent)) + geom_line() + xlab("L2 exposure (proportion)") 
 ```
 
 Language entropy can be computed from the data elicited by language history questionnaires that have become ubiquitous in the field. In recent papers, we have argued that language entropy is an ideal way to measure theoretically relevant variables such as the _social diversity of language usage_ or _inteactional context of langauge usage_ (see e.g. the _Adaptive Control Hypothesis_ by Green & Abutalebi, 2013) in a continuous manner. We have also shown that language entropy relates to various cognitive and neural processes (see Gullifer et al., 2018; Gullifer & Titone, under review). Language entropy generalizes well to multilingual contexts (while reducing the number of variables), and it is distributed continuously. 
+
+Of note, various forms of entropy have been used previously to quantify language use in other domains: for example, entropy has been used to assess diversity in multilingual language use on Twitter (e.g., Eleta & Golbeck, 2014) and the distribution of programming language choice among software developers (Krein, MacLean, Delorey, Knutson, & Eggett, 2009). 
 
 # Installation
 `languageEntropy` can be installed through `devtools` using the code below.
@@ -152,11 +154,15 @@ print(entropyExData)
 ```
 
 # References
+Eleta, I., & Golbeck, J. (2014). Multilingual use of twitter: Social networks at the language frontier. _Computers in Human Behavior_, _41_, 424-432. doi:10.1016/j.chb.2014.05.005
+
 Gullifer, J. W., Chai, X. J., Whitford, V., Pivneva, I., Baum, S., Klein, D., & Titone, D. (2018). Bilingual experience and resting-state brain connectivity: Impacts of L2 age of acquisition and social diversity of language use on control networks. _Neuropsychologia_, _117_, 123–134. http://doi.org/10.1016/j.neuropsychologia.2018.04.037
 
 Green, D. W., & Abutalebi, J. (2013). Language control in bilinguals: The adaptive control hypothesis. _Journal of Cognitive Psychology_, _25_, 515–530. https://doi.org/10.1080%2F20445911.2013.796377
 
 Gullifer, J. W., & Titone, D. (under review). Characterizing the social diversity of bilingualism using language entropy. _Bilingualism: Language and Cognition._ http://doi.org/10.1017/S1366728919000026
+
+Krein, J. L., MacLean, A. C., Delorey, D. P., Knutson, C. D., & Eggett, D. L. (2009). Language entropy: A metric for characterization of author programming language distribution. Paper presented at the 4th Workshop on Public Data about Software Development.
 
 # Acknowledgments
 This work was supported by the Natural Sciences and Engineering Research Council of Canada (individual Discovery Grant, 264146 to Titone); the Social Sciences and Humanities Research Council of Canada (Insight Development Grant, 01037 to Gullifer & Titone); the National Institutes of Health (Postdoctoral training grant, F32-HD082983 to Gullifer, Titone, and Klein); the Centre for Research on Brain, Language & Music.
